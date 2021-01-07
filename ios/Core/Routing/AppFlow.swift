@@ -20,7 +20,7 @@ class AppFlow: Flow {
         
         switch step {
         case .home:
-            rootViewController.setViewControllers([StreamViewerController.instantiate(self.stepper)],
+            rootViewController.setViewControllers([HomeViewController.instantiate()],
                                                   animated: false)
             return .none
         case .view(let id):

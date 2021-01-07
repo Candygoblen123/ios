@@ -11,6 +11,8 @@ import RxFlow
 import RxSwift
 
 class BaseModel: NSObject {
+    let bag = DisposeBag()
+    
     required init(_ stepper: Stepper) {
         
     }

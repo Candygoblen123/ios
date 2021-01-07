@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r0y-Sw-RBS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stream Viewer Controller-->
+        <scene sceneID="qzG-vS-Ltl">
+            <objects>
+                <viewController id="r0y-Sw-RBS" customClass="StreamViewerController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5td-7P-HWM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hA3-V1-Wb5" customClass="YTPlayerView">
+                                <rect key="frame" x="20" y="44" width="374" height="210"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="7Dr-sO-Wa9"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndi-N6-TLA">
+                                <rect key="frame" x="20" y="262" width="59" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dbf-RX-LhP"/>
+                                    <constraint firstAttribute="width" constant="59" id="gKA-CQ-iQu"/>
+                                </constraints>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playVideo" destination="r0y-Sw-RBS" eventType="touchUpInside" id="s8n-Q2-ERU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNt-cI-B1z">
+                                <rect key="frame" x="87" y="262" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="POd-rc-7oH"/>
+                                    <constraint firstAttribute="height" constant="30" id="TRs-I9-wlH"/>
+                                </constraints>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseVideo" destination="r0y-Sw-RBS" eventType="touchUpInside" id="8V4-Bb-wZd"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-iH-7BA">
+                                <rect key="frame" x="20" y="358" width="374" height="504"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKq-mp-zgi">
+                                <rect key="frame" x="20" y="329" width="142" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="iUJ-o2-y2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zMP-vj-mrv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="tOq-iH-7BA" secondAttribute="trailing" constant="20" id="1Vj-GO-oYd"/>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="uKq-mp-zgi" secondAttribute="trailing" constant="252" id="1s1-hp-hWZ"/>
+                            <constraint firstItem="uKq-mp-zgi" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="2hh-wo-MEo"/>
+                            <constraint firstItem="uKq-mp-zgi" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="75" id="CoC-Mu-75z"/>
+                            <constraint firstItem="bNt-cI-B1z" firstAttribute="leading" secondItem="Ndi-N6-TLA" secondAttribute="trailing" constant="8" symbolic="YES" id="DHk-zS-LEf"/>
+                            <constraint firstItem="hA3-V1-Wb5" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="DJ0-hG-e1r"/>
+                            <constraint firstItem="Ndi-N6-TLA" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="8" symbolic="YES" id="G1Q-di-VTy"/>
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="Gml-Ce-smg"/>
+                            <constraint firstItem="bNt-cI-B1z" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="8" symbolic="YES" id="Ock-SC-1NQ"/>
+                            <constraint firstItem="Ndi-N6-TLA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="hkO-jU-OIV"/>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="bottom" secondItem="tOq-iH-7BA" secondAttribute="bottom" id="uwc-1E-fNl"/>
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="104" id="waF-ab-Zne"/>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="hA3-V1-Wb5" secondAttribute="trailing" constant="20" id="xor-lZ-qAN"/>
+                            <constraint firstItem="hA3-V1-Wb5" firstAttribute="top" secondItem="zMP-vj-mrv" secondAttribute="top" id="zFk-3N-TGn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="hA3-V1-Wb5" id="rye-vA-hBC"/>
+                        <outlet property="tableView" destination="tOq-iH-7BA" id="nVV-f4-aMK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rh-WK-PvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14.492753623188406" y="110.49107142857143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

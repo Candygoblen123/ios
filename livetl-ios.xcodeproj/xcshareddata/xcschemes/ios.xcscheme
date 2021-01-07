@@ -50,6 +50,13 @@
             ReferencedContainer = "container:livetl-ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "API_KEY"
+            value = "AIzaSyCTolnnzj6j5NCZiOt1BrIGxQ0qLj3s4Bc"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

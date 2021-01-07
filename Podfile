@@ -3,8 +3,10 @@ target 'ios' do
   use_frameworks!
 
   pod 'Reusable'
+  pod 'youtube-ios-player-helper'
 
   pod 'RxCocoa'
+  pod 'RxDataSources'
   pod 'RxFlow'
   pod 'RxSwift'
 

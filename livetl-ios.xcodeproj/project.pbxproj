@@ -16,6 +16,13 @@
 		66DEFF5E25A6E2700071D27B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5C25A6E2700071D27B /* Main.storyboard */; };
 		66DEFF6025A6E2710071D27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5F25A6E2710071D27B /* Assets.xcassets */; };
 		66DEFF6325A6E2710071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF6125A6E2710071D27B /* LaunchScreen.storyboard */; };
+		66DEFF8725A6E9660071D27B /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF8625A6E9660071D27B /* AppStep.swift */; };
+		66DEFF8D25A701730071D27B /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF8C25A701730071D27B /* BaseController.swift */; };
+		66DEFF9125A7018F0071D27B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF9025A7018F0071D27B /* BaseModel.swift */; };
+		66DEFF9625A702610071D27B /* StreamViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF9525A702610071D27B /* StreamViewerController.swift */; };
+		66DEFF9C25A702660071D27B /* StreamViewerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF9B25A702660071D27B /* StreamViewerModel.swift */; };
+		66DEFFA025A702720071D27B /* StreamViewerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF9F25A702720071D27B /* StreamViewerController.storyboard */; };
+		66DEFFA425A702F50071D27B /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFFA325A702F50071D27B /* AppFlow.swift */; };
 		7B94287507B3A6759681E230 /* Pods_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880D8B890B7BCF386DA2249D /* Pods_tvos.framework */; };
 		9EF932AC8BEA13B9A9FE14E4 /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2905CBAD8592DABE992D356 /* Pods_ios.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +42,13 @@
 		66DEFF5F25A6E2710071D27B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66DEFF6225A6E2710071D27B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66DEFF6425A6E2710071D27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66DEFF8625A6E9660071D27B /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
+		66DEFF8C25A701730071D27B /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		66DEFF9025A7018F0071D27B /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		66DEFF9525A702610071D27B /* StreamViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewerController.swift; sourceTree = "<group>"; };
+		66DEFF9B25A702660071D27B /* StreamViewerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewerModel.swift; sourceTree = "<group>"; };
+		66DEFF9F25A702720071D27B /* StreamViewerController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StreamViewerController.storyboard; sourceTree = "<group>"; };
+		66DEFFA325A702F50071D27B /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		7A4B8DCDE15CABCE97E4F309 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		880D8B890B7BCF386DA2249D /* Pods_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2905CBAD8592DABE992D356 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +101,8 @@
 			children = (
 				66DEFF3F25A6E24A0071D27B /* AppDelegate.swift */,
 				66DEFF4125A6E24A0071D27B /* SceneDelegate.swift */,
+				66DEFF8225A6E8FD0071D27B /* Core */,
+				66DEFF8125A6E8F50071D27B /* Views */,
 				66DEFF7825A6E5210071D27B /* Resources */,
 			);
 			path = ios;
@@ -113,6 +129,59 @@
 				66DEFF4D25A6E24B0071D27B /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		66DEFF8125A6E8F50071D27B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66DEFF9425A702510071D27B /* StreamViewer */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		66DEFF8225A6E8FD0071D27B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				66DEFF8425A6E90B0071D27B /* Bootstrap */,
+				66DEFF8325A6E9030071D27B /* Routing */,
+				66DEFF8525A6E9200071D27B /* Services */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		66DEFF8325A6E9030071D27B /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				66DEFF8625A6E9660071D27B /* AppStep.swift */,
+				66DEFFA325A702F50071D27B /* AppFlow.swift */,
+			);
+			name = Routing;
+			sourceTree = "<group>";
+		};
+		66DEFF8425A6E90B0071D27B /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				66DEFF8C25A701730071D27B /* BaseController.swift */,
+				66DEFF9025A7018F0071D27B /* BaseModel.swift */,
+			);
+			name = Bootstrap;
+			sourceTree = "<group>";
+		};
+		66DEFF8525A6E9200071D27B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		66DEFF9425A702510071D27B /* StreamViewer */ = {
+			isa = PBXGroup;
+			children = (
+				66DEFF9525A702610071D27B /* StreamViewerController.swift */,
+				66DEFF9B25A702660071D27B /* StreamViewerModel.swift */,
+				66DEFF9F25A702720071D27B /* StreamViewerController.storyboard */,
+			);
+			name = StreamViewer;
 			sourceTree = "<group>";
 		};
 		90B0EABD1CC1C7363B61B9A9 /* Pods */ = {
@@ -218,6 +287,7 @@
 			files = (
 				66DEFF4C25A6E24B0071D27B /* LaunchScreen.storyboard in Resources */,
 				66DEFF4925A6E24B0071D27B /* Assets.xcassets in Resources */,
+				66DEFFA025A702720071D27B /* StreamViewerController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
+				66DEFFA425A702F50071D27B /* AppFlow.swift in Sources */,
+				66DEFF8725A6E9660071D27B /* AppStep.swift in Sources */,
+				66DEFF8D25A701730071D27B /* BaseController.swift in Sources */,
 				66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */,
+				66DEFF9125A7018F0071D27B /* BaseModel.swift in Sources */,
+				66DEFF9625A702610071D27B /* StreamViewerController.swift in Sources */,
+				66DEFF9C25A702660071D27B /* StreamViewerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

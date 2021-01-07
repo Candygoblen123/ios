@@ -30,4 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator.coordinate(flow: flow, with: flow.stepper)
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            let id = url.path.replacingOccurrences(of: "/", with: "")
+            coordinator.navigate(to: AppStep.view(id: id))
+        }
+    }
 }

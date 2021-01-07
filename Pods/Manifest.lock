@@ -1,0 +1,44 @@
+PODS:
+  - FLEX (4.3.0)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxFlow (2.12.0):
+    - RxCocoa (>= 6.0.0)
+    - RxSwift (>= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+
+DEPENDENCIES:
+  - FLEX
+  - Reusable
+  - RxCocoa
+  - RxFlow
+  - RxSwift
+
+SPEC REPOS:
+  trunk:
+    - FLEX
+    - Reusable
+    - RxCocoa
+    - RxFlow
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  FLEX: 58820af8881284bdd44e36141c607b8199cca45d
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxFlow: b407eb6b5d956041a9e0930469346e104911a470
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+
+PODFILE CHECKSUM: 2ebc53f59075c9399e51be780c631548accdef2f
+
+COCOAPODS: 1.10.0

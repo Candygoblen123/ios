@@ -23,6 +23,12 @@ class AppFlow: Flow {
             rootViewController.setViewControllers([StreamViewerController.instantiate(self.stepper)],
                                                   animated: false)
             return .none
+        case .view(let id):
+            let controller = StreamViewerController.instantiate(self.stepper)
+            controller.loadStreamWithId(id: id)
+            rootViewController.setViewControllers([controller], animated: false)
+            
+            return .none
             
         default: return .none
         }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChatCell" customModule="ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-ck-ajc">
+                    <rect key="frame" x="20" y="44" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="pQV-3G-jjZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateTime" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTI-2M-7Wx">
+                    <rect key="frame" x="329.5" y="87" width="64.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-69-h7Q">
+                    <rect key="frame" x="20" y="87" width="301.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EtU-69-h7Q" secondAttribute="bottom" constant="3" id="7Sw-hS-yaz"/>
+                <constraint firstItem="EtU-69-h7Q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="BA1-0A-VbS"/>
+                <constraint firstItem="jnX-ck-ajc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Fig-ou-A0E"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="yTI-2M-7Wx" secondAttribute="bottom" constant="3" id="S5T-p0-emU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yTI-2M-7Wx" secondAttribute="trailing" constant="20" id="TmN-Bj-UYS"/>
+                <constraint firstItem="yTI-2M-7Wx" firstAttribute="leading" secondItem="EtU-69-h7Q" secondAttribute="trailing" constant="8" symbolic="YES" id="YOf-a9-sgn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jnX-ck-ajc" secondAttribute="trailing" constant="20" id="t1l-Ez-MAe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="jnX-ck-ajc" secondAttribute="top" id="u1A-Qa-qzK"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="author" destination="EtU-69-h7Q" id="WkG-8v-Mva"/>
+                <outlet property="datetime" destination="yTI-2M-7Wx" id="kw6-ux-CxI"/>
+                <outlet property="message" destination="jnX-ck-ajc" id="muv-1U-fe9"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-147.99107142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

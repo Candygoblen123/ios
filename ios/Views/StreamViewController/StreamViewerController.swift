@@ -35,13 +35,20 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         view.addGestureRecognizer(gesture)
         
         tableView.rx.setDelegate(model).disposed(by: bag)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "chatCell")
+        tableView.register(cellType: ChatCell.self)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<YTMessageSection>(configureCell: { source, table, index, item in
+            let cell = table.dequeueReusableCell(for: index) as ChatCell
+            cell.use(item)
+            return cell
+        })
         
         model.liveChat
             .filter { !$0.isEmpty }
-            .bind(to: tableView.rx.items(cellIdentifier: "chatCell", cellType: UITableViewCell.self)) { index, item, cell in
-                cell.textLabel?.text = item.snippet.displayMessage
-            }.disposed(by: bag)
+            .map { $0.sorted { $0.snippet.publishedAt > $1.snippet.publishedAt }}
+            .map { [YTMessageSection(items: $0)] }
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
         
         guard playerView != nil else { return }
         playerView.delegate = self
@@ -84,5 +91,18 @@ extension StreamViewerController: YTPlayerViewDelegate {
     }
     func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
         
+    }
+}
+
+struct YTMessageSection: SectionModelType {
+    typealias Item = YTMessageResponse.MessageItem
+    var items: [Item]
+    
+    init(original: Self, items: [Item]) {
+        self = original
+        self.items = items
+    }
+    init(items: [Item]) {
+        self.items = items
     }
 }

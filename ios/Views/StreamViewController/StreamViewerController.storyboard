@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-iH-7BA">
-                                <rect key="frame" x="20" y="358" width="374" height="504"/>
+                                <rect key="frame" x="20" y="408" width="374" height="454"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKq-mp-zgi">
@@ -58,27 +58,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IrZ-pl-kY4">
+                                <rect key="frame" x="20" y="396" width="374" height="4"/>
+                            </progressView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="beg-fZ-4qf">
+                                <rect key="frame" x="20" y="357" width="374" height="32"/>
+                                <segments>
+                                    <segment title="All Chat"/>
+                                    <segment title="Translated Only"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zMP-vj-mrv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="beg-fZ-4qf" secondAttribute="trailing" constant="20" id="12A-kn-56d"/>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="tOq-iH-7BA" secondAttribute="trailing" constant="20" id="1Vj-GO-oYd"/>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="uKq-mp-zgi" secondAttribute="trailing" constant="252" id="1s1-hp-hWZ"/>
                             <constraint firstItem="uKq-mp-zgi" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="2hh-wo-MEo"/>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="IrZ-pl-kY4" secondAttribute="trailing" constant="20" id="3th-gs-gZ2"/>
                             <constraint firstItem="uKq-mp-zgi" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="75" id="CoC-Mu-75z"/>
                             <constraint firstItem="bNt-cI-B1z" firstAttribute="leading" secondItem="Ndi-N6-TLA" secondAttribute="trailing" constant="8" symbolic="YES" id="DHk-zS-LEf"/>
                             <constraint firstItem="hA3-V1-Wb5" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="DJ0-hG-e1r"/>
                             <constraint firstItem="Ndi-N6-TLA" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="8" symbolic="YES" id="G1Q-di-VTy"/>
                             <constraint firstItem="tOq-iH-7BA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="Gml-Ce-smg"/>
                             <constraint firstItem="bNt-cI-B1z" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="8" symbolic="YES" id="Ock-SC-1NQ"/>
+                            <constraint firstItem="IrZ-pl-kY4" firstAttribute="top" secondItem="beg-fZ-4qf" secondAttribute="bottom" constant="8" symbolic="YES" id="Ttc-oU-jh9"/>
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="beg-fZ-4qf" secondAttribute="bottom" constant="20" id="Vtr-BA-RKi"/>
                             <constraint firstItem="Ndi-N6-TLA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="hkO-jU-OIV"/>
+                            <constraint firstItem="IrZ-pl-kY4" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="qKD-X5-ePr"/>
+                            <constraint firstItem="beg-fZ-4qf" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="qyz-L9-81l"/>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="bottom" secondItem="tOq-iH-7BA" secondAttribute="bottom" id="uwc-1E-fNl"/>
-                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="104" id="waF-ab-Zne"/>
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="hA3-V1-Wb5" secondAttribute="bottom" constant="154" id="waF-ab-Zne"/>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="hA3-V1-Wb5" secondAttribute="trailing" constant="20" id="xor-lZ-qAN"/>
                             <constraint firstItem="hA3-V1-Wb5" firstAttribute="top" secondItem="zMP-vj-mrv" secondAttribute="top" id="zFk-3N-TGn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chatControl" destination="beg-fZ-4qf" id="Fop-wH-A7Z"/>
+                        <outlet property="nextRefresh" destination="IrZ-pl-kY4" id="KTa-nA-dhb"/>
                         <outlet property="playerView" destination="hA3-V1-Wb5" id="rye-vA-hBC"/>
                         <outlet property="tableView" destination="tOq-iH-7BA" id="nVV-f4-aMK"/>
                     </connections>

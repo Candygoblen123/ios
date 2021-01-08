@@ -16,8 +16,10 @@ import FLEX
 class StreamViewerController: UIViewController, StoryboardBased, BaseController {
     var model: StreamViewerModel!
     
-    @IBOutlet weak var playerView: YTPlayerView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playerView : YTPlayerView!
+    @IBOutlet weak var tableView  : UITableView!
+    @IBOutlet weak var chatControl: UISegmentedControl!
+    @IBOutlet weak var nextRefresh: UIProgressView!
     
     var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
     let bag = DisposeBag()
@@ -50,6 +52,23 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
+        BehaviorRelay<Int>.interval(.milliseconds(5000), scheduler: MainScheduler.instance)
+            .map { _ in Int.random(in: 4550...5500) }
+            .bind(to: model.pollingInterval)
+            .disposed(by: bag)
+        
+        model.pollingInterval.flatMapLatest { interval in
+            return BehaviorRelay<Int>.interval(.milliseconds(1), scheduler: MainScheduler.instance)
+        }.map { timer -> Float in
+            var total = Float(self.model.pollingInterval.value)
+            if(total < 0) { total = 5000 }
+            
+            let final = Float(timer) / total
+            
+            return final
+        }.bind(to: nextRefresh.rx.progress)
+        .disposed(by: bag)
+        
         guard playerView != nil else { return }
         playerView.delegate = self
         viewLoadedObservable.accept(true)
@@ -66,7 +85,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             ]
             self?.playerView?.load(withVideoId: id, playerVars: vars)
             
-            self?.model.loadFromAPI(id: id)
+//            self?.model.loadFromAPI(id: id)
         }).disposed(by: bag)
     }
     

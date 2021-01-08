@@ -129,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				66E9A11025A80D40005F5D9D /* MessageFooterView */,
-				66E9A10F25A80D30005F5D9D /* ChatRefreshHeaderView */,
 				66E9A10E25A80D29005F5D9D /* ChatCell */,
 				663D81D525A782C8009AD901 /* StreamViewerController.swift */,
 				663D81D425A782C8009AD901 /* StreamViewerModel.swift */,
@@ -261,13 +260,6 @@
 				66E9A12125A80D6E005F5D9D /* ChatCell.xib */,
 			);
 			path = ChatCell;
-			sourceTree = "<group>";
-		};
-		66E9A10F25A80D30005F5D9D /* ChatRefreshHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChatRefreshHeaderView;
 			sourceTree = "<group>";
 		};
 		66E9A11025A80D40005F5D9D /* MessageFooterView */ = {

@@ -2,6 +2,7 @@ target 'ios' do
   platform :ios, '14.0'
   use_frameworks!
 
+  pod 'GoogleSignIn'
   pod 'Reusable'
   pod 'SwiftDate'
   pod 'youtube-ios-player-helper'

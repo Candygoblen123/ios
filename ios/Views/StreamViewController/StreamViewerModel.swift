@@ -28,7 +28,7 @@ class StreamViewerModel: BaseModel {
         
         liveChatId.compactMap { $0 }.subscribe(onNext: { chat in
             print(chat)
-//            self.getChatMessages(liveId: chat)
+            self.getChatMessages(liveId: chat)
         }, onError: { e in
             print(e)
         }).disposed(by: bag)

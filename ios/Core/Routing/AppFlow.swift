@@ -19,19 +19,28 @@ class AppFlow: Flow {
         guard let step = step as? AppStep else { return .none }
         
         switch step {
-        case .home:
-            rootViewController.setViewControllers([HomeViewController.instantiate()],
-                                                  animated: false)
-            return .none
-        case .view(let id):
-            let controller = StreamViewerController.instantiate(self.stepper)
-            controller.loadStreamWithId(id: id)
-            rootViewController.setViewControllers([controller], animated: false)
+        case .home: return toHome()
             
-            return .none
+        case .view(let id): return toStream(id)
             
         default: return .none
         }
+    }
+    
+    private func toHome() -> FlowContributors {
+        let controller = HomeViewController.instantiate()
+        controller.stepper = self.stepper
+        
+        rootViewController.setViewControllers([controller], animated: true)
+        
+        return .none
+    }
+    private func toStream(_ id: String) -> FlowContributors {
+        let controller = StreamViewerController.instantiate(self.stepper)
+        controller.loadStreamWithId(id: id)
+        rootViewController.setViewControllers([controller], animated: true)
+        
+        return .none
     }
 }
 

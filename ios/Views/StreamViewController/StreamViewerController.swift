@@ -52,10 +52,10 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-        BehaviorRelay<Int>.interval(.milliseconds(5000), scheduler: MainScheduler.instance)
-            .map { _ in Int.random(in: 4550...5500) }
-            .bind(to: model.pollingInterval)
-            .disposed(by: bag)
+//        BehaviorRelay<Int>.interval(.milliseconds(5000), scheduler: MainScheduler.instance)
+//            .map { _ in Int.random(in: 4550...5500) }
+//            .bind(to: model.pollingInterval)
+//            .disposed(by: bag)
         
         model.pollingInterval.flatMapLatest { interval in
             return BehaviorRelay<Int>.interval(.milliseconds(1), scheduler: MainScheduler.instance)
@@ -85,7 +85,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             ]
             self?.playerView?.load(withVideoId: id, playerVars: vars)
             
-//            self?.model.loadFromAPI(id: id)
+            self?.model.loadFromAPI(id: id)
         }).disposed(by: bag)
     }
     

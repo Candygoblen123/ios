@@ -18,10 +18,10 @@ protocol BaseController {
 }
 
 extension StoryboardBased where Self: UIViewController & BaseController {
-    static func instantiate(_ stepper: Stepper) -> Self {
+    static func instantiate(_ stepper: Stepper, services: AppService) -> Self {
         var controller = Self.instantiate()
         
-        let model = Self.Model.init(stepper)
+        let model = Self.Model.init(stepper, services: services)
         controller.model = model
         
         return controller

@@ -11,9 +11,13 @@ import RxFlow
 import RxSwift
 
 class BaseModel: NSObject {
+    let stepper : Stepper
+    let services: AppService
+    
     let bag = DisposeBag()
     
-    required init(_ stepper: Stepper) {
-        
+    required init(_ stepper: Stepper, services: AppService) {
+        self.stepper = stepper
+        self.services = services
     }
 }

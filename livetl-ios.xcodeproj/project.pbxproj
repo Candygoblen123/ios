@@ -32,6 +32,13 @@
 		66DEFF6325A6E2710071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF6125A6E2710071D27B /* LaunchScreen.storyboard */; };
 		66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9A11125A80D51005F5D9D /* ChatCell.swift */; };
 		66E9A12225A80D6E005F5D9D /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E9A12125A80D6E005F5D9D /* ChatCell.xib */; };
+		66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A4FB25ACE41E00B271AA /* AuthService.swift */; };
+		66F2A50425ACE79000B271AA /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50325ACE79000B271AA /* AppServices.swift */; };
+		66F2A50925ACE7A600B271AA /* YTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50825ACE7A600B271AA /* YTService.swift */; };
+		66F2A51225ACECC700B271AA /* YTVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51125ACECC700B271AA /* YTVideoResponse.swift */; };
+		66F2A51725ACED7600B271AA /* YTMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51625ACED7600B271AA /* YTMessageResponse.swift */; };
+		66F2A51C25ACEDB500B271AA /* YTDecodableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */; };
+		66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A52025ACF1BC00B271AA /* HomeModel.swift */; };
 		7B94287507B3A6759681E230 /* Pods_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880D8B890B7BCF386DA2249D /* Pods_tvos.framework */; };
 		9EF932AC8BEA13B9A9FE14E4 /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2905CBAD8592DABE992D356 /* Pods_ios.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +100,13 @@
 		66DEFFD025A70AEB0071D27B /* ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ios.entitlements; sourceTree = "<group>"; };
 		66E9A11125A80D51005F5D9D /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		66E9A12125A80D6E005F5D9D /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		66F2A4FB25ACE41E00B271AA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		66F2A50325ACE79000B271AA /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		66F2A50825ACE7A600B271AA /* YTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTService.swift; sourceTree = "<group>"; };
+		66F2A51125ACECC700B271AA /* YTVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTVideoResponse.swift; sourceTree = "<group>"; };
+		66F2A51625ACED7600B271AA /* YTMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTMessageResponse.swift; sourceTree = "<group>"; };
+		66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDecodableTime.swift; sourceTree = "<group>"; };
+		66F2A52025ACF1BC00B271AA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		7A4B8DCDE15CABCE97E4F309 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		880D8B890B7BCF386DA2249D /* Pods_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2905CBAD8592DABE992D356 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +184,8 @@
 		663D81DF25A782C8009AD901 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				66F2A51025ACECAE00B271AA /* Models */,
+				66F2A4FA25ACE2ED00B271AA /* Services */,
 				663D81DB25A782C8009AD901 /* Bootstrap */,
 				663D81DE25A782C8009AD901 /* Routing */,
 			);
@@ -181,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				663D81FD25A78360009AD901 /* HomeViewController.swift */,
+				66F2A52025ACF1BC00B271AA /* HomeModel.swift */,
 				663D820525A78368009AD901 /* HomeViewController.storyboard */,
 			);
 			path = HomeViewController;
@@ -272,6 +289,26 @@
 			path = MessageFooterView;
 			sourceTree = "<group>";
 		};
+		66F2A4FA25ACE2ED00B271AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				66F2A50325ACE79000B271AA /* AppServices.swift */,
+				66F2A4FB25ACE41E00B271AA /* AuthService.swift */,
+				66F2A50825ACE7A600B271AA /* YTService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66F2A51025ACECAE00B271AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66F2A51125ACECC700B271AA /* YTVideoResponse.swift */,
+				66F2A51625ACED7600B271AA /* YTMessageResponse.swift */,
+				66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		90B0EABD1CC1C7363B61B9A9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +359,7 @@
 				66DEFF3A25A6E24A0071D27B /* Resources */,
 				FED79F76915E5B5C0764656A /* [CP] Embed Pods Frameworks */,
 				66DEFFC025A706310071D27B /* Embed App Extensions */,
-				2855AE562CC0D384EFF17A61 /* [CP] Copy Pods Resources */,
+				499E3053586EB9C98453B483 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,23 +465,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2855AE562CC0D384EFF17A61 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3CBA359AF8F4F79256058A8E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +485,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		499E3053586EB9C98453B483 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E0AD05B65D438826811F7C3B /* [CP] Check Pods Manifest.lock */ = {
@@ -522,15 +559,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
+				66F2A51225ACECC700B271AA /* YTVideoResponse.swift in Sources */,
 				663D81F725A782EA009AD901 /* StreamViewerController.swift in Sources */,
+				66F2A51725ACED7600B271AA /* YTMessageResponse.swift in Sources */,
 				663D81EF25A782DF009AD901 /* AppStep.swift in Sources */,
 				66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */,
 				663D81E025A782D4009AD901 /* BaseController.swift in Sources */,
+				66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */,
 				663D81E725A782D9009AD901 /* BaseModel.swift in Sources */,
+				66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */,
 				663D81FE25A78360009AD901 /* HomeViewController.swift in Sources */,
 				663D81EB25A782DC009AD901 /* AppFlow.swift in Sources */,
+				66F2A50425ACE79000B271AA /* AppServices.swift in Sources */,
 				66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */,
 				663D81F325A782E4009AD901 /* StreamViewerModel.swift in Sources */,
+				66F2A50925ACE7A600B271AA /* YTService.swift in Sources */,
+				66F2A51C25ACEDB500B271AA /* YTDecodableTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

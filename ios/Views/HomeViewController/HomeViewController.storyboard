@@ -16,24 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share to start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJc-hW-LQg">
-                                <rect key="frame" x="155" y="438" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share to start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJc-hW-LQg">
+                                <rect key="frame" x="155" y="442.5" width="104" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="HPo-ro-Ipb"/>
+                                    <constraint firstAttribute="height" constant="21" id="py7-cd-ViL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fX-04-VYp" customClass="GIDSignInButton">
-                                <rect key="frame" x="121" y="467" width="172" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="791-8H-6Ha" customClass="GIDSignInButton">
+                                <rect key="frame" x="121" y="471" width="172" height="39"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="VtU-z7-Dgx"/>
+                                    <constraint firstAttribute="width" constant="172" id="udc-Tf-k3h"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jc0-vc-n1X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="791-8H-6Ha" firstAttribute="top" secondItem="ZJc-hW-LQg" secondAttribute="bottom" constant="7.5" id="ZQI-z8-BEm"/>
+                            <constraint firstItem="ZJc-hW-LQg" firstAttribute="centerY" secondItem="jc0-vc-n1X" secondAttribute="centerY" id="dmg-bm-aIh"/>
+                            <constraint firstItem="ZJc-hW-LQg" firstAttribute="centerX" secondItem="jc0-vc-n1X" secondAttribute="centerX" id="nQO-QH-zpU"/>
+                            <constraint firstItem="791-8H-6Ha" firstAttribute="centerX" secondItem="jc0-vc-n1X" secondAttribute="centerX" id="ocI-rz-gSq"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="signInButton" destination="1fX-04-VYp" id="0kJ-QP-ONG"/>
+                        <outlet property="signInButton" destination="791-8H-6Ha" id="muY-Ml-G6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpd-OF-J9N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

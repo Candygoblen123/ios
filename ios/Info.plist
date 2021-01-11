@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2</string>
+				<string>livetl-auth</string>
 			</array>
 		</dict>
 	</array>

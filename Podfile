@@ -7,6 +7,8 @@ target 'ios' do
   pod 'SwiftDate'
   pod 'youtube-ios-player-helper'
 
+  pod 'KeychainAccess'
+  pod 'OAuthSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxFlow'

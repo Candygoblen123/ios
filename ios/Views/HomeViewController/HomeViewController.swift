@@ -6,25 +6,43 @@
 //
 
 import UIKit
-import GoogleSignIn
+import SafariServices
+import GoogleSignIn.GIDSignInButton
+import OAuthSwift
 import RxFlow
+import RxSwift
 import Reusable
+import FLEX
 
-class HomeViewController: UIViewController, StoryboardBased {
-    
+class HomeViewController: UIViewController, StoryboardBased, BaseController {
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    var model: HomeModel!
     var stepper: Stepper!
+    
+    var oauth: OAuth2Swift!
+    
+    let bag = DisposeBag()
+    
+    var gesture: UITapGestureRecognizer {
+        let g = UITapGestureRecognizer(target: self, action: #selector(showFlex))
+        g.numberOfTouchesRequired = 2
+        g.numberOfTapsRequired = 2
+        return g
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(gesture)
+
+        signInButton.colorScheme = UITraitCollection.current.userInterfaceStyle == .dark  ? .dark : .light
+        signInButton.removeTarget(nil, action: nil, for: .allEvents)
+        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        model.services.auth.loggedIn.map { !$0 }.bind(to: signInButton.rx.isHidden).disposed(by: bag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         let pasteboard = UIPasteboard.general.urls ?? []
         
@@ -50,5 +68,18 @@ class HomeViewController: UIViewController, StoryboardBased {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func signIn() {
+        model.services.auth.authorize(self)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        signInButton.colorScheme = UITraitCollection.current.userInterfaceStyle == .dark  ? .dark : .light
+    }
+    
+    @objc func showFlex() {
+        FLEXManager.shared.showExplorer()
     }
 }

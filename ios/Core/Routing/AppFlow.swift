@@ -14,13 +14,13 @@ class AppFlow: Flow {
     var root: Presentable { return rootViewController }
     let rootViewController = UINavigationController()
     let stepper = AppStepper()
+    let services = AppService()
     
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AppStep else { return .none }
         
         switch step {
         case .home: return toHome()
-            
         case .view(let id): return toStream(id)
             
         default: return .none
@@ -28,7 +28,7 @@ class AppFlow: Flow {
     }
     
     private func toHome() -> FlowContributors {
-        let controller = HomeViewController.instantiate()
+        let controller = HomeViewController.instantiate(self.stepper, services: services)
         controller.stepper = self.stepper
         
         rootViewController.setViewControllers([controller], animated: true)
@@ -36,7 +36,7 @@ class AppFlow: Flow {
         return .none
     }
     private func toStream(_ id: String) -> FlowContributors {
-        let controller = StreamViewerController.instantiate(self.stepper)
+        let controller = StreamViewerController.instantiate(self.stepper, services: services)
         controller.loadStreamWithId(id: id)
         rootViewController.setViewControllers([controller], animated: true)
         

@@ -18,6 +18,8 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - KeychainAccess (4.2.1)
+  - OAuthSwift (2.1.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -42,6 +44,8 @@ PODS:
 DEPENDENCIES:
   - FLEX
   - GoogleSignIn
+  - KeychainAccess
+  - OAuthSwift
   - Reusable
   - RxCocoa
   - RxDataSources
@@ -58,6 +62,8 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - KeychainAccess
+    - OAuthSwift
     - Reusable
     - RxCocoa
     - RxDataSources
@@ -74,6 +80,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
+  OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
@@ -83,6 +91,6 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
 
-PODFILE CHECKSUM: e1a9323fd86221482729469a18f03a1c4cc78e10
+PODFILE CHECKSUM: ed39124625f363267f8750081c9510fd3bb34293
 
 COCOAPODS: 1.10.0

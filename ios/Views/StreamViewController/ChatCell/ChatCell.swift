@@ -20,9 +20,9 @@ class ChatCell: UITableViewCell, NibReusable {
         super.awakeFromNib()
     }
     
-    func use(_ item: YTMessageResponse.MessageItem) {
-        message.text = item.snippet.displayMessage
-        author.text = item.authorDetails.displayName        
-        datetime.text = item.snippet.publishedAt.value.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
+    func use(_ item: YTMessageWrapper.YTMessage) {
+        message.text = item.message.first?.text ?? "MSGERR"
+        author.text = item.author.name
+//        datetime.text = item.snippet.publishedAt.value.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
     }
 }

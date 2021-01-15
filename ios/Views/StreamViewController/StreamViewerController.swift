@@ -16,10 +16,13 @@ import FLEX
 class StreamViewerController: UIViewController, StoryboardBased, BaseController {
     var model: StreamViewerModel!
     
-    @IBOutlet weak var playerView : YTPlayerView!
-    @IBOutlet weak var tableView  : UITableView!
-    @IBOutlet weak var chatControl: UISegmentedControl!
-    @IBOutlet weak var nextRefresh: UIProgressView!
+    @IBOutlet weak var playerView  : YTPlayerView!
+    @IBOutlet weak var tableView   : UITableView!
+    @IBOutlet weak var chatControl : UISegmentedControl!
+    @IBOutlet weak var nextRefresh : UIProgressView!
+    @IBOutlet weak var injectorView: WKWebView!
+    
+//    let injectorView: WKWebView = WKWebView(frame: .zero)
     
     var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
     let bag = DisposeBag()
@@ -47,45 +50,40 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         
         model.liveChat
             .filter { !$0.isEmpty }
-            .map { $0.sorted { $0.snippet.publishedAt > $1.snippet.publishedAt }}
+//            .map { $0.sorted { $0.snippet.publishedAt > $1.snippet.publishedAt }}
             .map { [YTMessageSection(items: $0)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-//        BehaviorRelay<Int>.interval(.milliseconds(5000), scheduler: MainScheduler.instance)
-//            .map { _ in Int.random(in: 4550...5500) }
-//            .bind(to: model.pollingInterval)
-//            .disposed(by: bag)
-        
-        model.pollingInterval.flatMapLatest { interval in
-            return BehaviorRelay<Int>.interval(.milliseconds(1), scheduler: MainScheduler.instance)
-        }.map { timer -> Float in
-            var total = Float(self.model.pollingInterval.value)
-            if(total < 0) { total = 5000 }
-            
-            let final = Float(timer) / total
-            
-            return final
-        }.bind(to: nextRefresh.rx.progress)
-        .disposed(by: bag)
-        
         guard playerView != nil else { return }
         playerView.delegate = self
         viewLoadedObservable.accept(true)
+        
+        do {
+            let path = Bundle.main.path(forResource: "WindowInjector", ofType: "js") ?? ""
+            let js = try String(contentsOfFile: path, encoding: .utf8)
+            let script = WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+            
+            injectorView.configuration.userContentController.addUserScript(script)
+            injectorView.configuration.userContentController.add(self.model, name: "ios_messageReceive")
+        } catch {
+            print(error)
+        }
     }
     
     func loadStreamWithId(id: String) {
         viewLoadedObservable.filter { $0 }.subscribe(onNext: { [weak self] _ in
-            let vars = [
+            let _ = [
                 "playsinline": true,
                 "autoplay": true,
                 "controls": false,
                 "fs": false,
                 "rel": false
             ]
-            self?.playerView?.load(withVideoId: id, playerVars: vars)
+            self?.playerView?.load(withVideoId: id, playerVars: [:])
             
-            self?.model.loadFromAPI(id: id)
+            let request = URLRequest(url: URL(string: "https://www.youtube.com/live_chat?v=\(id)&embed_domain=www.livetl.app&app=desktop")!)
+            self?.injectorView.load(request)
         }).disposed(by: bag)
     }
     
@@ -114,7 +112,7 @@ extension StreamViewerController: YTPlayerViewDelegate {
 }
 
 struct YTMessageSection: SectionModelType {
-    typealias Item = YTMessageResponse.MessageItem
+    typealias Item = YTMessageWrapper.YTMessage
     var items: [Item]
     
     init(original: Self, items: [Item]) {

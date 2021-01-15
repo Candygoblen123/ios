@@ -17,6 +17,7 @@
 		663D820625A78368009AD901 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663D820525A78368009AD901 /* HomeViewController.storyboard */; };
 		663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663D81D625A782C8009AD901 /* StreamViewerController.storyboard */; };
 		665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */; };
+		6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */ = {isa = PBXBuildFile; fileRef = 6672687C25B20B1B00C5AC95 /* WindowInjector.js */; };
 		66DE002025A70E6D0071D27B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DE001F25A70E6D0071D27B /* Media.xcassets */; };
 		66DE002225A70E6D0071D27B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE002125A70E6D0071D27B /* ActionViewController.swift */; };
 		66DE002925A70E6D0071D27B /* yt-translate.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 66DE001D25A70E6D0071D27B /* yt-translate.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -79,6 +80,7 @@
 		663D81FD25A78360009AD901 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		663D820525A78368009AD901 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		6672687C25B20B1B00C5AC95 /* WindowInjector.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = WindowInjector.js; sourceTree = "<group>"; };
 		66DE001D25A70E6D0071D27B /* yt-translate.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "yt-translate.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DE001F25A70E6D0071D27B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		66DE002125A70E6D0071D27B /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				66DEFF4A25A6E24B0071D27B /* LaunchScreen.storyboard */,
 				665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */,
 				66DEFF4D25A6E24B0071D27B /* Info.plist */,
+				6672687C25B20B1B00C5AC95 /* WindowInjector.js */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */,
 				663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */,
 				663D820625A78368009AD901 /* HomeViewController.storyboard in Resources */,
+				6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

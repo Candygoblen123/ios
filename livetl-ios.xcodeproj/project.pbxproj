@@ -35,10 +35,6 @@
 		66E9A12225A80D6E005F5D9D /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E9A12125A80D6E005F5D9D /* ChatCell.xib */; };
 		66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A4FB25ACE41E00B271AA /* AuthService.swift */; };
 		66F2A50425ACE79000B271AA /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50325ACE79000B271AA /* AppServices.swift */; };
-		66F2A50925ACE7A600B271AA /* YTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50825ACE7A600B271AA /* YTService.swift */; };
-		66F2A51225ACECC700B271AA /* YTVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51125ACECC700B271AA /* YTVideoResponse.swift */; };
-		66F2A51725ACED7600B271AA /* YTMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51625ACED7600B271AA /* YTMessageResponse.swift */; };
-		66F2A51C25ACEDB500B271AA /* YTDecodableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */; };
 		66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A52025ACF1BC00B271AA /* HomeModel.swift */; };
 		7B94287507B3A6759681E230 /* Pods_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880D8B890B7BCF386DA2249D /* Pods_tvos.framework */; };
 		9EF932AC8BEA13B9A9FE14E4 /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2905CBAD8592DABE992D356 /* Pods_ios.framework */; };
@@ -104,10 +100,6 @@
 		66E9A12125A80D6E005F5D9D /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		66F2A4FB25ACE41E00B271AA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		66F2A50325ACE79000B271AA /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
-		66F2A50825ACE7A600B271AA /* YTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTService.swift; sourceTree = "<group>"; };
-		66F2A51125ACECC700B271AA /* YTVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTVideoResponse.swift; sourceTree = "<group>"; };
-		66F2A51625ACED7600B271AA /* YTMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTMessageResponse.swift; sourceTree = "<group>"; };
-		66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDecodableTime.swift; sourceTree = "<group>"; };
 		66F2A52025ACF1BC00B271AA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		7A4B8DCDE15CABCE97E4F309 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		880D8B890B7BCF386DA2249D /* Pods_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,9 +153,8 @@
 				663D81FC25A78345009AD901 /* HomeViewController */,
 				663D81D725A782C8009AD901 /* StreamViewController */,
 			);
-			name = Views;
-			path = "/Users/matrix/Development/github/livetl-ios/ios/Views";
-			sourceTree = "<absolute>";
+			path = Views;
+			sourceTree = "<group>";
 		};
 		663D81DB25A782C8009AD901 /* Bootstrap */ = {
 			isa = PBXGroup;
@@ -186,14 +177,12 @@
 		663D81DF25A782C8009AD901 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				66F2A51025ACECAE00B271AA /* Models */,
 				66F2A4FA25ACE2ED00B271AA /* Services */,
 				663D81DB25A782C8009AD901 /* Bootstrap */,
 				663D81DE25A782C8009AD901 /* Routing */,
 			);
-			name = Core;
-			path = "/Users/matrix/Development/github/livetl-ios/ios/Core";
-			sourceTree = "<absolute>";
+			path = Core;
+			sourceTree = "<group>";
 		};
 		663D81FC25A78345009AD901 /* HomeViewController */ = {
 			isa = PBXGroup;
@@ -297,19 +286,8 @@
 			children = (
 				66F2A50325ACE79000B271AA /* AppServices.swift */,
 				66F2A4FB25ACE41E00B271AA /* AuthService.swift */,
-				66F2A50825ACE7A600B271AA /* YTService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		66F2A51025ACECAE00B271AA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				66F2A51125ACECC700B271AA /* YTVideoResponse.swift */,
-				66F2A51625ACED7600B271AA /* YTMessageResponse.swift */,
-				66F2A51B25ACEDB500B271AA /* YTDecodableTime.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		90B0EABD1CC1C7363B61B9A9 /* Pods */ = {
@@ -563,9 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
-				66F2A51225ACECC700B271AA /* YTVideoResponse.swift in Sources */,
 				663D81F725A782EA009AD901 /* StreamViewerController.swift in Sources */,
-				66F2A51725ACED7600B271AA /* YTMessageResponse.swift in Sources */,
 				663D81EF25A782DF009AD901 /* AppStep.swift in Sources */,
 				66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */,
 				663D81E025A782D4009AD901 /* BaseController.swift in Sources */,
@@ -577,8 +553,6 @@
 				66F2A50425ACE79000B271AA /* AppServices.swift in Sources */,
 				66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */,
 				663D81F325A782E4009AD901 /* StreamViewerModel.swift in Sources */,
-				66F2A50925ACE7A600B271AA /* YTService.swift in Sources */,
-				66F2A51C25ACEDB500B271AA /* YTDecodableTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

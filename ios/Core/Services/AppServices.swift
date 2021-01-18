@@ -9,5 +9,4 @@ import Foundation
 
 struct AppService {
     let auth = AuthService()
-    let yt   = YTService()
 }

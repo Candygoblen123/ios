@@ -12,6 +12,7 @@ import RxDataSources
 import Reusable
 import youtube_ios_player_helper
 import FLEX
+import SwiftDate
 
 class StreamViewerController: UIViewController, StoryboardBased, BaseController {
     var model: StreamViewerModel!
@@ -42,15 +43,25 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         tableView.rx.setDelegate(model).disposed(by: bag)
         tableView.register(cellType: ChatCell.self)
         
+        chatControl.rx.value.bind(to: model.chatControl).disposed(by: bag)
+        
         let dataSource = RxTableViewSectionedReloadDataSource<YTMessageSection>(configureCell: { source, table, index, item in
             let cell = table.dequeueReusableCell(for: index) as ChatCell
-            cell.use(item)
+            
+            guard let message = item.initialMessage else { return cell }
+            switch message {
+            case .text(let s): cell.message.text = s
+            default: break
+            }
+            cell.author.text = item.author.name
+            cell.datetime.text = item.timestamp.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
+            
             return cell
         })
         
-        model.liveChat
+        model.chatRelay
             .filter { !$0.isEmpty }
-//            .map { $0.sorted { $0.snippet.publishedAt > $1.snippet.publishedAt }}
+            .map { $0.sorted { $0.timestamp > $1.timestamp }}
             .map { [YTMessageSection(items: $0)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
@@ -112,7 +123,7 @@ extension StreamViewerController: YTPlayerViewDelegate {
 }
 
 struct YTMessageSection: SectionModelType {
-    typealias Item = YTMessageWrapper.YTMessage
+    typealias Item = DisplayableMessage
     var items: [Item]
     
     init(original: Self, items: [Item]) {

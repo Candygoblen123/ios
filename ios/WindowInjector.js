@@ -56,7 +56,7 @@ const messageReceiveCallback = async(response) => {
     }
     (
       response.continuationContents.liveChatContinuation.actions || []
-    ).forEach((action) => {
+    ).forEach((action, i) => {
       try {
         let currentElement = action.addChatItemAction;
         if (action.replayChatItemAction != null) {
@@ -109,10 +109,9 @@ const messageReceiveCallback = async(response) => {
             id: messageItem.authorExternalChannelId,
             types: authorTypes
           },
+          index: i,
           message: runs,
-          timestamp: isReplay
-            ? timestampText
-            : formatTimestamp(timestampUsec),
+          timestamp: Math.round(parseInt(timestampUsec) / 1000),
           showtime: isReplay ? getMillis(timestampText, timestampUsec)
             : date.getTime() - Math.round(timestampUsec / 1000)
         };

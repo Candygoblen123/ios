@@ -1,23 +1,6 @@
 PODS:
-  - AppAuth (1.4.0):
-    - AppAuth/Core (= 1.4.0)
-    - AppAuth/ExternalUserAgent (= 1.4.0)
-  - AppAuth/Core (1.4.0)
-  - AppAuth/ExternalUserAgent (1.4.0)
   - Differentiator (5.0.0)
   - FLEX (4.3.0)
-  - GoogleSignIn (5.0.2):
-    - AppAuth (~> 1.2)
-    - GTMAppAuth (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GTMAppAuth (1.1.0):
-    - AppAuth/Core (~> 1.4)
-    - GTMSessionFetcher (~> 1.4)
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
-  - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
   - KeychainAccess (4.2.1)
   - OAuthSwift (2.1.0)
   - Reusable (4.1.1):
@@ -39,11 +22,10 @@ PODS:
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
   - SwiftDate (6.3.1)
-  - youtube-ios-player-helper (1.0.2)
+  - XCDYouTubeKit (2.15.2)
 
 DEPENDENCIES:
   - FLEX
-  - GoogleSignIn
   - KeychainAccess
   - OAuthSwift
   - Reusable
@@ -52,16 +34,12 @@ DEPENDENCIES:
   - RxFlow
   - RxSwift
   - SwiftDate
-  - youtube-ios-player-helper
+  - XCDYouTubeKit
 
 SPEC REPOS:
   trunk:
-    - AppAuth
     - Differentiator
     - FLEX
-    - GoogleSignIn
-    - GTMAppAuth
-    - GTMSessionFetcher
     - KeychainAccess
     - OAuthSwift
     - Reusable
@@ -71,15 +49,11 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SwiftDate
-    - youtube-ios-player-helper
+    - XCDYouTubeKit
 
 SPEC CHECKSUMS:
-  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FLEX: 58820af8881284bdd44e36141c607b8199cca45d
-  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
@@ -89,8 +63,8 @@ SPEC CHECKSUMS:
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
-  youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: d9ac16b055ae3346207c051a2c5d4d20c174c811
+PODFILE CHECKSUM: f6f880ce7d17aa02b75b5776f7695ebd11d1815a
 
 COCOAPODS: 1.10.0

@@ -10,20 +10,21 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import Reusable
-import youtube_ios_player_helper
 import FLEX
 import SwiftDate
+import WebKit
+import XCDYouTubeKit
+import AVKit
 
 class StreamViewerController: UIViewController, StoryboardBased, BaseController {
     var model: StreamViewerModel!
     
-    @IBOutlet weak var playerView  : YTPlayerView!
+    @IBOutlet weak var videoView   : UIView!
     @IBOutlet weak var tableView   : UITableView!
     @IBOutlet weak var chatControl : UISegmentedControl!
-    @IBOutlet weak var nextRefresh : UIProgressView!
     @IBOutlet weak var injectorView: WKWebView!
     
-//    let injectorView: WKWebView = WKWebView(frame: .zero)
+    var videoController: AVPlayerViewController!
     
     var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
     let bag = DisposeBag()
@@ -58,8 +59,6 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-        guard playerView != nil else { return }
-        playerView.delegate = self
         viewLoadedObservable.accept(true)
         
         do {
@@ -76,41 +75,32 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     
     func loadStreamWithId(id: String) {
         viewLoadedObservable.filter { $0 }.subscribe(onNext: { [weak self] _ in
-            let _ = [
-                "playsinline": true,
-                "autoplay": true,
-                "controls": false,
-                "fs": false,
-                "rel": false
-            ]
-            self?.playerView?.load(withVideoId: id, playerVars: [:])
+            XCDYouTubeClient.default().getVideoWithIdentifier(id) { (video, error) in
+                guard error == nil else { print(error!); return }
+                
+                if let video = video, let url = video.streamURL {
+                    let player = AVPlayer(url: url)
+                    
+                    self?.handleUpdateVideoController(player)
+                } else { print("cant get video") }
+            }
             
             let request = URLRequest(url: URL(string: "https://www.youtube.com/live_chat?v=\(id)&embed_domain=www.livetl.app&app=desktop")!)
             self?.injectorView.load(request)
         }).disposed(by: bag)
     }
     
-    @IBAction func playVideo() {
-        playerView.playVideo()
-    }
-    @IBAction func pauseVideo() {
-        playerView.pauseVideo()
+    func handleUpdateVideoController(_ player: AVPlayer) {
+        videoController = AVPlayerViewController()
+        videoController.player = player
+        let layer = AVPlayerLayer(player: player)
+        layer.bounds = videoView.frame
+        videoView.layer.addSublayer(layer)
+        player.play()
     }
     
     @objc func showFlex() {
         FLEXManager.shared.showExplorer()
-    }
-}
-
-extension StreamViewerController: YTPlayerViewDelegate {
-    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        print(state)
-    }
-    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        
-    }
-    func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
-        
     }
 }
 

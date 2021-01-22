@@ -3,10 +3,9 @@ target 'ios' do
   use_frameworks!
   inhibit_all_warnings!
 
-  pod 'GoogleSignIn'
   pod 'Reusable'
   pod 'SwiftDate'
-  pod 'youtube-ios-player-helper'
+  pod 'XCDYouTubeKit'
 
   pod 'KeychainAccess'
   pod 'OAuthSwift'

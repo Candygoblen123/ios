@@ -7,7 +7,6 @@
 
 import UIKit
 import SafariServices
-import GoogleSignIn.GIDSignInButton
 import OAuthSwift
 import RxFlow
 import RxSwift
@@ -15,8 +14,6 @@ import Reusable
 import FLEX
 
 class HomeViewController: UIViewController, StoryboardBased, BaseController {
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    
     var model: HomeModel!
     var stepper: Stepper!
     
@@ -34,11 +31,6 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(gesture)
-
-        signInButton.colorScheme = UITraitCollection.current.userInterfaceStyle == .dark  ? .dark : .light
-        signInButton.removeTarget(nil, action: nil, for: .allEvents)
-        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
-        model.services.auth.loggedIn.map { !$0 }.bind(to: signInButton.rx.isHidden).disposed(by: bag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,15 +60,6 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-    }
-    
-    @IBAction func signIn() {
-        model.services.auth.authorize(self)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        signInButton.colorScheme = UITraitCollection.current.userInterfaceStyle == .dark  ? .dark : .light
     }
     
     @objc func showFlex() {

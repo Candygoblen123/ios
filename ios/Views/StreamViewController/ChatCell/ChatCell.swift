@@ -20,13 +20,9 @@ class ChatCell: UITableViewCell, NibReusable {
         super.awakeFromNib()
     }
     
-    func use<T: DisplayableMessage>(_ item: T) {
-        guard let message = item.initialMessage else { return }
-        switch message {
-        case .text(let s): self.message.text = s
-        default: break
-        }
-        author.text = item.author.name
-        datetime.text = item.timestamp.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
+    func use(_ item: DisplayableMessage) {
+        message.text = item.displayMessage
+        author.text = item.displayAuthor
+        datetime.text = item.displayTimestamp
     }
 }

@@ -47,21 +47,13 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         
         let dataSource = RxTableViewSectionedReloadDataSource<YTMessageSection>(configureCell: { source, table, index, item in
             let cell = table.dequeueReusableCell(for: index) as ChatCell
-            
-            guard let message = item.initialMessage else { return cell }
-            switch message {
-            case .text(let s): cell.message.text = s
-            default: break
-            }
-            cell.author.text = item.author.name
-            cell.datetime.text = item.timestamp.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
-            
+            cell.use(item)
             return cell
         })
         
         model.chatRelay
             .filter { !$0.isEmpty }
-            .map { $0.sorted { $0.timestamp > $1.timestamp }}
+            .map { $0.sorted { $0.sortTimestamp > $1.sortTimestamp }}
             .map { [YTMessageSection(items: $0)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)

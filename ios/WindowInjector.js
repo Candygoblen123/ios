@@ -110,7 +110,7 @@ const messageReceiveCallback = async(response) => {
             types: authorTypes
           },
           index: i,
-          message: runs,
+          messages: runs,
           timestamp: Math.round(parseInt(timestampUsec) / 1000),
           showtime: isReplay ? getMillis(timestampText, timestampUsec)
             : date.getTime() - Math.round(timestampUsec / 1000)

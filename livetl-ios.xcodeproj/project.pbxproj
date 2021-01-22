@@ -31,6 +31,7 @@
 		66DEFF5E25A6E2700071D27B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5C25A6E2700071D27B /* Main.storyboard */; };
 		66DEFF6025A6E2710071D27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5F25A6E2710071D27B /* Assets.xcassets */; };
 		66DEFF6325A6E2710071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF6125A6E2710071D27B /* LaunchScreen.storyboard */; };
+		66E656D125BA95F9007CE809 /* YTInjectedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */; };
 		66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9A11125A80D51005F5D9D /* ChatCell.swift */; };
 		66E9A12225A80D6E005F5D9D /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E9A12125A80D6E005F5D9D /* ChatCell.xib */; };
 		66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A4FB25ACE41E00B271AA /* AuthService.swift */; };
@@ -96,6 +97,7 @@
 		66DEFF6225A6E2710071D27B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66DEFF6425A6E2710071D27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66DEFFD025A70AEB0071D27B /* ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ios.entitlements; sourceTree = "<group>"; };
+		66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTInjectedMessage.swift; sourceTree = "<group>"; };
 		66E9A11125A80D51005F5D9D /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		66E9A12125A80D6E005F5D9D /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		66F2A4FB25ACE41E00B271AA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -265,6 +267,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		66E656C425BA95AC007CE809 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		66E9A10E25A80D29005F5D9D /* ChatCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 		66F2A4FA25ACE2ED00B271AA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				66E656C425BA95AC007CE809 /* Models */,
 				66F2A50325ACE79000B271AA /* AppServices.swift */,
 				66F2A4FB25ACE41E00B271AA /* AuthService.swift */,
 			);
@@ -550,6 +561,7 @@
 				66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */,
 				663D81FE25A78360009AD901 /* HomeViewController.swift in Sources */,
 				663D81EB25A782DC009AD901 /* AppFlow.swift in Sources */,
+				66E656D125BA95F9007CE809 /* YTInjectedMessage.swift in Sources */,
 				66F2A50425ACE79000B271AA /* AppServices.swift in Sources */,
 				66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */,
 				663D81F325A782E4009AD901 /* StreamViewerModel.swift in Sources */,

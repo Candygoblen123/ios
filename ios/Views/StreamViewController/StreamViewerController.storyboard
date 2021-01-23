@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r0y-Sw-RBS">
-    <device id="retina6_7" orientation="portrait" appearance="dark"/>
+    <device id="retina5_9" orientation="landscape" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="r0y-Sw-RBS" customClass="StreamViewerController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5td-7P-HWM">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6km-c5-mjl">
@@ -27,55 +27,63 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-iH-7BA">
-                                <rect key="frame" x="20" y="306" width="388" height="547"/>
+                                <rect key="frame" x="480" y="20" width="272" height="295"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26J-Ym-iYw">
-                                <rect key="frame" x="0.0" y="44" width="428" height="254"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="254" id="oDJ-GZ-TQm">
-                                        <variation key="heightClass=compact-widthClass=regular" constant="387"/>
-                                    </constraint>
-                                </constraints>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="beg-fZ-4qf">
-                                <rect key="frame" x="20" y="861" width="388" height="32"/>
+                                <rect key="frame" x="480" y="323" width="268" height="32"/>
                                 <segments>
                                     <segment title="All Chat"/>
                                     <segment title="Translated Only"/>
                                 </segments>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26J-Ym-iYw">
+                                <rect key="frame" x="36" y="20" width="393" height="334"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="254" id="oDJ-GZ-TQm">
+                                        <variation key="heightClass=compact" constant="334"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="387"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zMP-vj-mrv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="26J-Ym-iYw" secondAttribute="bottom" constant="8" symbolic="YES" id="40b-Oe-fOs">
+                                <variation key="heightClass=compact" constant="-334"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-363"/>
                             </constraint>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="beg-fZ-4qf" secondAttribute="trailing" constant="20" id="Cr2-C8-GDW">
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="26J-Ym-iYw" secondAttribute="trailing" id="Jtb-XH-jsR">
+                                <variation key="heightClass=compact" constant="339"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="340"/>
                             </constraint>
                             <constraint firstItem="beg-fZ-4qf" firstAttribute="top" secondItem="tOq-iH-7BA" secondAttribute="bottom" constant="8" symbolic="YES" id="QjU-8V-ajG">
                                 <variation key="heightClass=compact-widthClass=regular" constant="8"/>
                             </constraint>
                             <constraint firstItem="tOq-iH-7BA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="TMO-0S-wdP">
+                                <variation key="heightClass=compact" constant="436"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="506"/>
                             </constraint>
                             <constraint firstItem="26J-Ym-iYw" firstAttribute="top" secondItem="zMP-vj-mrv" secondAttribute="top" id="Ua3-mp-E0k">
+                                <variation key="heightClass=compact" constant="20"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="20"/>
                             </constraint>
                             <constraint firstItem="26J-Ym-iYw" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" id="b0d-6A-bwo">
+                                <variation key="heightClass=compact" constant="-8"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
                             <constraint firstItem="beg-fZ-4qf" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="fJK-x2-asW">
+                                <variation key="heightClass=compact" constant="436"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="506"/>
                             </constraint>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="bottom" secondItem="beg-fZ-4qf" secondAttribute="bottom" id="hKU-ND-1EA"/>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="tOq-iH-7BA" secondAttribute="trailing" constant="20" id="q0a-CL-T76">
+                                <variation key="heightClass=compact" constant="16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
                         </constraints>
@@ -89,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rh-WK-PvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14.902807775377971" y="109.34579439252336"/>
+            <point key="canvasLocation" x="-15.517241379310345" y="108"/>
         </scene>
     </scenes>
     <resources>

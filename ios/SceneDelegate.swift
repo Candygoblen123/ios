@@ -28,6 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.makeKeyAndVisible()
         }
         
+        coordinator.rx.willNavigate.subscribe(onNext: { args in
+            print("WN \(args.0) -> \(args.1)")
+        }).disposed(by: bag)
+        coordinator.rx.didNavigate.subscribe(onNext: { args in
+            print("DN \(args.0) -> \(args.1)")
+        }).disposed(by: bag)
+        
         coordinator.coordinate(flow: flow, with: flow.stepper)
     }
 

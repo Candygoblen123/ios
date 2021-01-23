@@ -43,9 +43,14 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         
         tableView.rx.setDelegate(model).disposed(by: bag)
         tableView.register(cellType: ChatCell.self)
+        model.emptyTable.subscribe(onNext: { [weak tableView] empty in
+            if empty {
+                tableView?.setEmptyMessage("No messages to display")
+            } else { tableView?.restore() }
+        }).disposed(by: bag)
         
         chatControl.rx.value.bind(to: model.chatControl).disposed(by: bag)
-        
+                
         let dataSource = RxTableViewSectionedReloadDataSource<YTMessageSection>(configureCell: { source, table, index, item in
             let cell = table.dequeueReusableCell(for: index) as ChatCell
             cell.use(item)
@@ -53,10 +58,10 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         })
         
         model.chatRelay
-            .filter { !$0.isEmpty }
             .map { $0.sorted { $0.sortTimestamp > $1.sortTimestamp }}
+            .asDriver(onErrorJustReturn: [])
             .map { [YTMessageSection(items: $0)] }
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
         viewLoadedObservable.accept(true)

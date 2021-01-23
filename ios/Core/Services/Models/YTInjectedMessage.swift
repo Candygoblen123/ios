@@ -66,6 +66,8 @@ struct YTTranslatedMessage {
                     let endToken = s.firstIndex(of: token.end)
                 else { continue }
                 
+                guard beginToken < endToken else { continue }
+                
                 let lang = String(s[beginToken..<endToken])
                     .replacingOccurrences(of: "\(token.start)", with: "")
                     .replacingOccurrences(of: "\(token.end)", with: "")

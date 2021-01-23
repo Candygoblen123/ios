@@ -15,7 +15,8 @@ import WebKit
 
 class StreamViewerModel: BaseModel {
     
-    let chatRelay = PublishRelay<[DisplayableMessage]>()
+    let chatRelay = BehaviorRelay<[DisplayableMessage]>(value: [])
+    let emptyTable = BehaviorRelay<Bool>(value: true)
     
     let chatControl = BehaviorRelay<Int>(value: 0)
     
@@ -25,9 +26,14 @@ class StreamViewerModel: BaseModel {
     required init(_ stepper: Stepper, services: AppService) {
         super.init(stepper, services: services)
 
-        Observable.combineLatest(chatControl, liveChat, translatedChat) { (control, live, translated) in
+        let control = Observable.combineLatest(chatControl, liveChat, translatedChat) { (control, live, translated) in
             return control == 0 ? live : translated
-        }.bind(to: chatRelay).disposed(by: bag)
+        }
+        
+        control.bind(to: chatRelay).disposed(by: bag)
+        control.map { $0.isEmpty }.bind(to: emptyTable).disposed(by: bag)
+        
+        emptyTable.filter { $0 }.subscribe(onNext: { [chatRelay] _ in chatRelay.accept([]) }).disposed(by: bag)
     }
 }
 

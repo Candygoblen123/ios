@@ -53,6 +53,6 @@ struct AppStepper: Stepper {
     let initialStep: Step = AppStep.view(id: "aTFwRdK2Owo")
     
     func readyToEmitSteps() {
-        steps.accept(initialStep)
+//        steps.accept(initialStep)
     }
 }

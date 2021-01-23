@@ -16,6 +16,10 @@ class AppFlow: Flow {
     let stepper = AppStepper()
     let services = AppService()
     
+    init() {
+        rootViewController.isNavigationBarHidden = true
+    }
+    
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AppStep else { return .none }
         
@@ -46,7 +50,7 @@ class AppFlow: Flow {
 
 struct AppStepper: Stepper {
     let steps = PublishRelay<Step>()
-    let initialStep: Step = AppStep.home
+    let initialStep: Step = AppStep.view(id: "aTFwRdK2Owo")
     
     func readyToEmitSteps() {
         steps.accept(initialStep)

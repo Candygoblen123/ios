@@ -91,12 +91,19 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     }
     
     func handleUpdateVideoController(_ player: AVPlayer) {
+        if videoController != nil {
+            videoController.view.removeFromSuperview()
+            videoController.player?.pause()
+        }
+        
         videoController = AVPlayerViewController()
         videoController.player = player
-        let layer = AVPlayerLayer(player: player)
-        layer.bounds = videoView.frame
-        videoView.layer.addSublayer(layer)
-        player.play()
+        
+        addChild(videoController)
+        videoController.view.frame = videoView.bounds
+        videoController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        videoView.addSubview(videoController.view)
+        videoController.didMove(toParent: self)
     }
     
     @objc func showFlex() {

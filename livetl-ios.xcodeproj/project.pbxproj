@@ -33,8 +33,8 @@
 		66DEFF6325A6E2710071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF6125A6E2710071D27B /* LaunchScreen.storyboard */; };
 		66E656D125BA95F9007CE809 /* YTInjectedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */; };
 		66E6570C25BBD15A007CE809 /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6570B25BBD15A007CE809 /* TableViewExtension.swift */; };
-		66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9A11125A80D51005F5D9D /* ChatCell.swift */; };
-		66E9A12225A80D6E005F5D9D /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E9A12125A80D6E005F5D9D /* ChatCell.xib */; };
+		66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6571025BBDC56007CE809 /* ChatTextCell.swift */; };
+		66E6571325BBDC56007CE809 /* ChatTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E6571125BBDC56007CE809 /* ChatTextCell.xib */; };
 		66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A4FB25ACE41E00B271AA /* AuthService.swift */; };
 		66F2A50425ACE79000B271AA /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50325ACE79000B271AA /* AppServices.swift */; };
 		66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A52025ACF1BC00B271AA /* HomeModel.swift */; };
@@ -100,8 +100,8 @@
 		66DEFFD025A70AEB0071D27B /* ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ios.entitlements; sourceTree = "<group>"; };
 		66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTInjectedMessage.swift; sourceTree = "<group>"; };
 		66E6570B25BBD15A007CE809 /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
-		66E9A11125A80D51005F5D9D /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		66E9A12125A80D6E005F5D9D /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		66E6571025BBDC56007CE809 /* ChatTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextCell.swift; sourceTree = "<group>"; };
+		66E6571125BBDC56007CE809 /* ChatTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTextCell.xib; sourceTree = "<group>"; };
 		66F2A4FB25ACE41E00B271AA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		66F2A50325ACE79000B271AA /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		66F2A52025ACF1BC00B271AA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -281,8 +281,8 @@
 		66E9A10E25A80D29005F5D9D /* ChatCell */ = {
 			isa = PBXGroup;
 			children = (
-				66E9A11125A80D51005F5D9D /* ChatCell.swift */,
-				66E9A12125A80D6E005F5D9D /* ChatCell.xib */,
+				66E6571025BBDC56007CE809 /* ChatTextCell.swift */,
+				66E6571125BBDC56007CE809 /* ChatTextCell.xib */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -439,10 +439,10 @@
 			files = (
 				66DEFF4C25A6E24B0071D27B /* LaunchScreen.storyboard in Resources */,
 				66DEFF4925A6E24B0071D27B /* Assets.xcassets in Resources */,
-				66E9A12225A80D6E005F5D9D /* ChatCell.xib in Resources */,
 				665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */,
 				663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */,
 				663D820625A78368009AD901 /* HomeViewController.storyboard in Resources */,
+				66E6571325BBDC56007CE809 /* ChatTextCell.xib in Resources */,
 				6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,8 +538,8 @@
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
 				663D81F725A782EA009AD901 /* StreamViewerController.swift in Sources */,
+				66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */,
 				663D81EF25A782DF009AD901 /* AppStep.swift in Sources */,
-				66E9A11225A80D51005F5D9D /* ChatCell.swift in Sources */,
 				663D81E025A782D4009AD901 /* BaseController.swift in Sources */,
 				66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */,
 				663D81E725A782D9009AD901 /* BaseModel.swift in Sources */,
@@ -635,8 +635,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -665,14 +667,15 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.livetl.ios.yt-translate";
+				PRODUCT_BUNDLE_IDENTIFIER = "app.livetl.ios.yt-translate-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -710,8 +713,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -733,14 +738,15 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.livetl.ios.yt-translate";
+				PRODUCT_BUNDLE_IDENTIFIER = "app.livetl.ios.yt-translate-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -797,6 +803,7 @@
 				CODE_SIGN_ENTITLEMENTS = ios/ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -821,6 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -830,7 +838,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -874,6 +882,7 @@
 				CODE_SIGN_ENTITLEMENTS = ios/ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -892,6 +901,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.livetl.ios;
@@ -900,7 +910,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

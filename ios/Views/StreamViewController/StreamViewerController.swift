@@ -10,11 +10,14 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import Reusable
-import FLEX
 import SwiftDate
 import WebKit
 import XCDYouTubeKit
 import AVKit
+
+#if canImport(FLEX)
+    import FLEX
+#endif
 
 class StreamViewerController: UIViewController, StoryboardBased, BaseController {
     var model: StreamViewerModel!
@@ -40,9 +43,11 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         super.viewDidLoad()
         
         view.addGestureRecognizer(gesture)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 500
         
         tableView.rx.setDelegate(model).disposed(by: bag)
-        tableView.register(cellType: ChatCell.self)
+        tableView.register(cellType: ChatTextCell.self)
         model.emptyTable.subscribe(onNext: { [weak tableView] empty in
             if empty {
                 tableView?.setEmptyMessage("No messages to display")
@@ -50,9 +55,9 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         }).disposed(by: bag)
         
         chatControl.rx.value.bind(to: model.chatControl).disposed(by: bag)
-                
+
         let dataSource = RxTableViewSectionedReloadDataSource<YTMessageSection>(configureCell: { source, table, index, item in
-            let cell = table.dequeueReusableCell(for: index) as ChatCell
+            let cell = table.dequeueReusableCell(for: index) as ChatTextCell
             cell.use(item)
             return cell
         })
@@ -112,7 +117,9 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     }
     
     @objc func showFlex() {
+        #if canImport(FLEX)
         FLEXManager.shared.showExplorer()
+        #endif
     }
 }
 

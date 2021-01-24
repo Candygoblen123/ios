@@ -50,7 +50,7 @@ class AppFlow: Flow {
 
 struct AppStepper: Stepper {
     let steps = PublishRelay<Step>()
-    let initialStep: Step = AppStep.view(id: "aTFwRdK2Owo")
+    let initialStep: Step = AppStep.home
     
     func readyToEmitSteps() {
 //        steps.accept(initialStep)

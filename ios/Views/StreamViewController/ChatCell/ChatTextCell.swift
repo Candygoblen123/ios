@@ -1,16 +1,16 @@
 //
-//  ChatCell.swift
+//  ChatTextCell.swift
 //  ios
 //
-//  Created by Mason Phillips on 1/7/21.
+//  Created by Mason Phillips on 1/22/21.
 //
 
 import UIKit
-import SwiftDate
 import Reusable
 
-class ChatCell: UITableViewCell, NibReusable {
-    static let identifier: String = "chatCell"
+class ChatTextCell: UITableViewCell, NibReusable {
+
+    static let identifier: String = "chatTextCell"
     
     @IBOutlet weak var message : UILabel!
     @IBOutlet weak var author  : UILabel!

@@ -11,7 +11,10 @@ import OAuthSwift
 import RxFlow
 import RxSwift
 import Reusable
-import FLEX
+
+#if canImport(FLEX)
+    import FLEX
+#endif
 
 class HomeViewController: UIViewController, StoryboardBased, BaseController {
     var model: HomeModel!
@@ -63,6 +66,8 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
     }
     
     @objc func showFlex() {
-        FLEXManager.shared.showExplorer()
+        #if canImport(FLEX)
+            FLEXManager.shared.showExplorer()
+        #endif
     }
 }

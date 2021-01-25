@@ -1,8 +1,6 @@
 PODS:
   - Differentiator (5.0.0)
   - FLEX (4.3.0)
-  - KeychainAccess (4.2.1)
-  - OAuthSwift (2.1.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -26,8 +24,6 @@ PODS:
 
 DEPENDENCIES:
   - FLEX
-  - KeychainAccess
-  - OAuthSwift
   - Reusable
   - RxCocoa
   - RxDataSources
@@ -40,8 +36,6 @@ SPEC REPOS:
   trunk:
     - Differentiator
     - FLEX
-    - KeychainAccess
-    - OAuthSwift
     - Reusable
     - RxCocoa
     - RxDataSources
@@ -54,8 +48,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FLEX: 58820af8881284bdd44e36141c607b8199cca45d
-  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
@@ -65,6 +57,6 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: f6f880ce7d17aa02b75b5776f7695ebd11d1815a
+PODFILE CHECKSUM: 1bf04ed3532510f93bd361814bc3f44f43d1d71d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

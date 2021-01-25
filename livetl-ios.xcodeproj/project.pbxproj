@@ -18,7 +18,6 @@
 		663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663D81D625A782C8009AD901 /* StreamViewerController.storyboard */; };
 		665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */; };
 		6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */ = {isa = PBXBuildFile; fileRef = 6672687C25B20B1B00C5AC95 /* WindowInjector.js */; };
-		66DE002025A70E6D0071D27B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DE001F25A70E6D0071D27B /* Media.xcassets */; };
 		66DE002225A70E6D0071D27B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE002125A70E6D0071D27B /* ActionViewController.swift */; };
 		66DE002925A70E6D0071D27B /* yt-translate.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 66DE001D25A70E6D0071D27B /* yt-translate.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66DE004325A7173A0071D27B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DE004225A7173A0071D27B /* MainInterface.storyboard */; };
@@ -35,6 +34,7 @@
 		66E6570C25BBD15A007CE809 /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6570B25BBD15A007CE809 /* TableViewExtension.swift */; };
 		66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6571025BBDC56007CE809 /* ChatTextCell.swift */; };
 		66E6571325BBDC56007CE809 /* ChatTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E6571125BBDC56007CE809 /* ChatTextCell.xib */; };
+		66E6578625BE3EF3007CE809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF4825A6E24B0071D27B /* Assets.xcassets */; };
 		66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A4FB25ACE41E00B271AA /* AuthService.swift */; };
 		66F2A50425ACE79000B271AA /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A50325ACE79000B271AA /* AppServices.swift */; };
 		66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2A52025ACF1BC00B271AA /* HomeModel.swift */; };
@@ -428,7 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66DE002025A70E6D0071D27B /* Media.xcassets in Resources */,
+				66E6578625BE3EF3007CE809 /* Assets.xcassets in Resources */,
 				66DE004325A7173A0071D27B /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +606,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -638,8 +639,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -664,6 +666,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.1.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -684,6 +687,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -716,8 +720,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6S4L29QT59;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -736,6 +741,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 0.1.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "app.livetl.ios.yt-translate-extension";
@@ -828,7 +834,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -901,7 +907,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.livetl.ios;

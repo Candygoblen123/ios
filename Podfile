@@ -7,8 +7,6 @@ target 'ios' do
   pod 'SwiftDate'
   pod 'XCDYouTubeKit'
 
-  pod 'KeychainAccess'
-  pod 'OAuthSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxFlow'

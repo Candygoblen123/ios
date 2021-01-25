@@ -26,11 +26,12 @@ let tokens: [LangToken] = [
 ]
 
 protocol DisplayableMessage {
-    var displayMessage  : String { get }
-    var displayAuthor   : String { get }
-    var displayTimestamp: String { get }
+    var displayAuthor   : String    { get }
+    var displayTimestamp: String    { get }
     
-    var sortTimestamp   : Date   { get }
+    var displayMessage  : [Message] { get }
+    
+    var sortTimestamp   : Date      { get }
 }
 extension DisplayableMessage {
     static func >(l: Self, r: Self) -> Bool {
@@ -40,6 +41,34 @@ extension DisplayableMessage {
         return l.sortTimestamp < r.sortTimestamp
     }
 }
+
+enum Message: Decodable {
+    case text(_ str: String)
+    case emote(_ url: URL)
+    
+    enum CodingKeys: String, CodingKey {
+        case type
+        case src, text
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let msgType = try container.decode(String.self, forKey: .type)
+        
+        if msgType == "emote" {
+            let url = try container.decode(URL.self, forKey: .src)
+            self = .emote(url)
+        } else if msgType == "text" {
+            let str = try container.decode(String.self, forKey: .text)
+            self = .text(str)
+        } else {
+            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [CodingKeys.type],
+                                                                    debugDescription: "Could not find a supported type for the content provided"))
+        }
+    }
+}
+
 
 struct YTInjectedMessageChunk: Decodable {
     let type    : String
@@ -111,44 +140,13 @@ struct YTRawMessage: Decodable {
         let id   : String
         let types: [String]
     }
-    
-    enum Message: Decodable {
-        case text(_ str: String)
-        case emote(_ url: URL)
-        
-        enum CodingKeys: String, CodingKey {
-            case type
-            case src, text
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            let msgType = try container.decode(String.self, forKey: .type)
-            
-            if msgType == "emote" {
-                let url = try container.decode(URL.self, forKey: .src)
-                self = .emote(url)
-            } else if msgType == "text" {
-                let str = try container.decode(String.self, forKey: .text)
-                self = .text(str)
-            } else {
-                throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [CodingKeys.type],
-                                                                        debugDescription: "Could not find a supported type for the content provided"))
-            }
-        }
-    }
 }
 extension YTRawMessage: DisplayableMessage {
     var displayAuthor: String {
         return author.name
     }
-    var displayMessage: String {
-        if let message = messages.first, case let .text(s) = message {
-            return s
-        }
-        
-        return ""
+    var displayMessage: [Message] {
+        return messages
     }
     var displayTimestamp: String {
         return timestamp.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)
@@ -169,8 +167,8 @@ extension YTTranslatedMessage: DisplayableMessage {
     var displayAuthor: String {
         return author.name
     }
-    var displayMessage: String {
-        return message
+    var displayMessage: [Message] {
+        return [.text(self.message)]
     }
     var displayTimestamp: String {
         return timestamp.toRelative(style: RelativeFormatter.twitterStyle(), locale: Locales.english)

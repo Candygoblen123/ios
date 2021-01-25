@@ -7,7 +7,6 @@
 
 import UIKit
 import SafariServices
-import OAuthSwift
 import RxFlow
 import RxSwift
 import Reusable
@@ -19,8 +18,6 @@ import Reusable
 class HomeViewController: UIViewController, StoryboardBased, BaseController {
     var model: HomeModel!
     var stepper: Stepper!
-    
-    var oauth: OAuth2Swift!
     
     let bag = DisposeBag()
     

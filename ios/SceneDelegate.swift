@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import OAuthSwift
 import RxFlow
 import RxSwift
 
@@ -47,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             // Will change this...eventually...
             case "livetl-auth":
-                OAuthSwift.handle(url: url)
+                break
                 
             default: break
             }

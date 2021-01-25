@@ -10,7 +10,6 @@ import RxCocoa
 import RxFlow
 import RxSwift
 import SwiftDate
-import KeychainAccess
 import WebKit
 
 class StreamViewerModel: BaseModel {

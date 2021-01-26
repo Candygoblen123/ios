@@ -17,7 +17,7 @@ class AppFlow: Flow {
     let services = AppService()
     
     init() {
-        rootViewController.isNavigationBarHidden = true
+//        rootViewController.isNavigationBarHidden = true
     }
     
     func navigate(to step: Step) -> FlowContributors {

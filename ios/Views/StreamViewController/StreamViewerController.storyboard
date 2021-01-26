@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Font Awesome 5 Pro-Regular-400.otf">
+            <string>FontAwesome5Pro-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Stream Viewer Controller-->
         <scene sceneID="qzG-vS-Ltl">
@@ -17,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6km-c5-mjl">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <rect key="frame" x="97" y="372" width="224" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsPictureInPictureMediaPlayback="NO">
@@ -26,10 +31,6 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-iH-7BA">
-                                <rect key="frame" x="20" y="306" width="335" height="433"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="beg-fZ-4qf">
                                 <rect key="frame" x="20" y="747" width="335" height="32"/>
                                 <segments>
@@ -37,67 +38,96 @@
                                     <segment title="Translated Only"/>
                                 </segments>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26J-Ym-iYw">
-                                <rect key="frame" x="0.0" y="44" width="375" height="254"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-iH-7BA">
+                                <rect key="frame" x="16" y="350" width="343" height="389"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kt9-dp-bhz">
+                                <rect key="frame" x="16" y="88" width="343" height="186"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="254" id="oDJ-GZ-TQm">
-                                        <variation key="heightClass=compact" constant="334"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="387"/>
-                                    </constraint>
+                                    <constraint firstAttribute="width" constant="343" id="66e-xl-a6z"/>
+                                    <constraint firstAttribute="height" constant="186" id="soe-7O-7u9"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="fsm-Cz-GsD" kind="embed" identifier="loadPlayer" id="1QR-0S-1rR"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mh-GV-IqB">
+                                <rect key="frame" x="20" y="242" width="335" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAR-9c-yOD">
+                                        <rect key="frame" x="8" y="1" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FontAwesome5Pro-Regular" family="Font Awesome 5 Pro" pointSize="17"/>
+                                        <state key="normal" title=""/>
+                                        <connections>
+                                            <action selector="handlePlayPauseButton:" destination="r0y-Sw-RBS" eventType="touchUpInside" id="wpR-aR-4X5"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CP5-LS-yqw">
+                                        <rect key="frame" x="44" y="0.0" width="243" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETK-2t-io5">
+                                        <rect key="frame" x="293" y="0.0" width="42" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zMP-vj-mrv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="26J-Ym-iYw" secondAttribute="bottom" constant="8" symbolic="YES" id="40b-Oe-fOs">
-                                <variation key="heightClass=compact" constant="-334"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-363"/>
-                            </constraint>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="beg-fZ-4qf" secondAttribute="trailing" constant="20" id="Cr2-C8-GDW">
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
-                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="26J-Ym-iYw" secondAttribute="trailing" id="Jtb-XH-jsR">
-                                <variation key="heightClass=compact" constant="339"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="340"/>
-                            </constraint>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="Kt9-dp-bhz" secondAttribute="trailing" constant="16" id="Dr2-QX-LYF"/>
                             <constraint firstItem="beg-fZ-4qf" firstAttribute="top" secondItem="tOq-iH-7BA" secondAttribute="bottom" constant="8" symbolic="YES" id="QjU-8V-ajG">
                                 <variation key="heightClass=compact-widthClass=regular" constant="8"/>
                             </constraint>
-                            <constraint firstItem="tOq-iH-7BA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="TMO-0S-wdP">
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="16" id="TMO-0S-wdP">
                                 <variation key="heightClass=compact" constant="436"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="506"/>
                             </constraint>
-                            <constraint firstItem="26J-Ym-iYw" firstAttribute="top" secondItem="zMP-vj-mrv" secondAttribute="top" id="Ua3-mp-E0k">
-                                <variation key="heightClass=compact" constant="20"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
-                            </constraint>
-                            <constraint firstItem="26J-Ym-iYw" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" id="b0d-6A-bwo">
-                                <variation key="heightClass=compact" constant="-8"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="16"/>
-                            </constraint>
+                            <constraint firstItem="Kt9-dp-bhz" firstAttribute="top" secondItem="zMP-vj-mrv" secondAttribute="top" id="XFH-9A-Ulq"/>
                             <constraint firstItem="beg-fZ-4qf" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="20" id="fJK-x2-asW">
                                 <variation key="heightClass=compact" constant="436"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="506"/>
                             </constraint>
                             <constraint firstItem="zMP-vj-mrv" firstAttribute="bottom" secondItem="beg-fZ-4qf" secondAttribute="bottom" id="hKU-ND-1EA"/>
-                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="tOq-iH-7BA" secondAttribute="trailing" constant="20" id="q0a-CL-T76">
+                            <constraint firstItem="Kt9-dp-bhz" firstAttribute="leading" secondItem="zMP-vj-mrv" secondAttribute="leading" constant="16" id="l45-wH-hoB"/>
+                            <constraint firstItem="zMP-vj-mrv" firstAttribute="trailing" secondItem="tOq-iH-7BA" secondAttribute="trailing" constant="16" id="q0a-CL-T76">
                                 <variation key="heightClass=compact" constant="16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
+                            <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="Kt9-dp-bhz" secondAttribute="bottom" constant="76" id="qDE-p9-6bm"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="chatControl" destination="beg-fZ-4qf" id="Fop-wH-A7Z"/>
+                        <outlet property="controlButton" destination="JAR-9c-yOD" id="wS2-kC-p6j"/>
                         <outlet property="injectorView" destination="6km-c5-mjl" id="k9x-Kl-tX7"/>
                         <outlet property="tableView" destination="tOq-iH-7BA" id="nVV-f4-aMK"/>
-                        <outlet property="videoView" destination="26J-Ym-iYw" id="VLV-cb-fUe"/>
+                        <outlet property="videoView" destination="Kt9-dp-bhz" id="cdy-E9-wgX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rh-WK-PvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15.517241379310345" y="108"/>
+            <point key="canvasLocation" x="-16.800000000000001" y="107.88177339901478"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="8vI-zI-5zf">
+            <objects>
+                <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspect" id="fsm-Cz-GsD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xG-b3-xEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="159"/>
         </scene>
     </scenes>
     <resources>

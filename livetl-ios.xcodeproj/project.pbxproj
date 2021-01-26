@@ -18,6 +18,12 @@
 		663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663D81D625A782C8009AD901 /* StreamViewerController.storyboard */; };
 		665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */; };
 		6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */ = {isa = PBXBuildFile; fileRef = 6672687C25B20B1B00C5AC95 /* WindowInjector.js */; };
+		66865D5F25BFFEE800DB5C3C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66865D5E25BFFEE700DB5C3C /* PlayerView.swift */; };
+		66865D6C25C003E600DB5C3C /* Font Awesome 5 Duotone-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6725C003E600DB5C3C /* Font Awesome 5 Duotone-Solid-900.otf */; };
+		66865D6D25C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6825C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf */; };
+		66865D6E25C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6925C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf */; };
+		66865D6F25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6A25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf */; };
+		66865D7025C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6B25C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf */; };
 		66DE002225A70E6D0071D27B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE002125A70E6D0071D27B /* ActionViewController.swift */; };
 		66DE002925A70E6D0071D27B /* yt-translate.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 66DE001D25A70E6D0071D27B /* yt-translate.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66DE004325A7173A0071D27B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DE004225A7173A0071D27B /* MainInterface.storyboard */; };
@@ -79,6 +85,12 @@
 		663D820525A78368009AD901 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
 		6672687C25B20B1B00C5AC95 /* WindowInjector.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = WindowInjector.js; sourceTree = "<group>"; };
+		66865D5E25BFFEE700DB5C3C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		66865D6725C003E600DB5C3C /* Font Awesome 5 Duotone-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Duotone-Solid-900.otf"; path = "FontAwesome/otfs/Font Awesome 5 Duotone-Solid-900.otf"; sourceTree = SOURCE_ROOT; };
+		66865D6825C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "FontAwesome/otfs/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
+		66865D6925C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Regular-400.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
+		66865D6A25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Light-300.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Light-300.otf"; sourceTree = SOURCE_ROOT; };
+		66865D6B25C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Solid-900.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Solid-900.otf"; sourceTree = SOURCE_ROOT; };
 		66DE001D25A70E6D0071D27B /* yt-translate.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "yt-translate.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DE001F25A70E6D0071D27B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		66DE002125A70E6D0071D27B /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +154,7 @@
 		663D81D725A782C8009AD901 /* StreamViewController */ = {
 			isa = PBXGroup;
 			children = (
-				66E9A11025A80D40005F5D9D /* MessageFooterView */,
+				66865D5D25BFFEBE00DB5C3C /* PlayerController */,
 				66E9A10E25A80D29005F5D9D /* ChatCell */,
 				663D81D525A782C8009AD901 /* StreamViewerController.swift */,
 				663D81D425A782C8009AD901 /* StreamViewerModel.swift */,
@@ -197,6 +209,26 @@
 				663D820525A78368009AD901 /* HomeViewController.storyboard */,
 			);
 			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		66865D5D25BFFEBE00DB5C3C /* PlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				66865D5E25BFFEE700DB5C3C /* PlayerView.swift */,
+			);
+			path = PlayerController;
+			sourceTree = "<group>";
+		};
+		66865D6625C003CF00DB5C3C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				66865D6825C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf */,
+				66865D6725C003E600DB5C3C /* Font Awesome 5 Duotone-Solid-900.otf */,
+				66865D6A25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf */,
+				66865D6925C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf */,
+				66865D6B25C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		66DE001E25A70E6D0071D27B /* yt-translate */ = {
@@ -261,6 +293,7 @@
 		66DEFF7825A6E5210071D27B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66865D6625C003CF00DB5C3C /* Fonts */,
 				66DEFF4825A6E24B0071D27B /* Assets.xcassets */,
 				66DEFF4A25A6E24B0071D27B /* LaunchScreen.storyboard */,
 				665A973D25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist */,
@@ -285,13 +318,6 @@
 				66E6571125BBDC56007CE809 /* ChatTextCell.xib */,
 			);
 			path = ChatCell;
-			sourceTree = "<group>";
-		};
-		66E9A11025A80D40005F5D9D /* MessageFooterView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MessageFooterView;
 			sourceTree = "<group>";
 		};
 		66F2A4FA25ACE2ED00B271AA /* Services */ = {
@@ -439,11 +465,16 @@
 			files = (
 				66DEFF4C25A6E24B0071D27B /* LaunchScreen.storyboard in Resources */,
 				66DEFF4925A6E24B0071D27B /* Assets.xcassets in Resources */,
+				66865D7025C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf in Resources */,
 				665A973E25AA3B250032F8E7 /* client_626233357823-qpb2o7vroh74h3uf9vs27dtsmfnaj2j2.apps.googleusercontent.com.plist in Resources */,
 				663D821625A7855A009AD901 /* StreamViewerController.storyboard in Resources */,
+				66865D6C25C003E600DB5C3C /* Font Awesome 5 Duotone-Solid-900.otf in Resources */,
 				663D820625A78368009AD901 /* HomeViewController.storyboard in Resources */,
 				66E6571325BBDC56007CE809 /* ChatTextCell.xib in Resources */,
+				66865D6D25C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */,
+				66865D6E25C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf in Resources */,
+				66865D6F25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
+				66865D5F25BFFEE800DB5C3C /* PlayerView.swift in Sources */,
 				663D81F725A782EA009AD901 /* StreamViewerController.swift in Sources */,
 				66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */,
 				663D81EF25A782DF009AD901 /* AppStep.swift in Sources */,

@@ -27,6 +27,8 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     @IBOutlet weak var chatControl : UISegmentedControl!
     @IBOutlet weak var injectorView: WKWebView!
     
+    @IBOutlet weak var controlButton: UIButton!
+    
     var videoController: AVPlayerViewController!
     
     var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
@@ -69,8 +71,6 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-        viewLoadedObservable.accept(true)
-        
         do {
             let path = Bundle.main.path(forResource: "WindowInjector", ofType: "js") ?? ""
             let js = try String(contentsOfFile: path, encoding: .utf8)
@@ -106,7 +106,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             videoController.player?.pause()
         }
         
-        videoController = AVPlayerViewController()
+        videoController.showsPlaybackControls = false
         videoController.player = player
         
         addChild(videoController)
@@ -116,11 +116,34 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
         videoController.didMove(toParent: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loadPlayer" {
+            videoController = segue.destination as? AVPlayerViewController
+            guard videoController != nil else { print("video controller not accessed"); return }
+            
+            viewLoadedObservable.accept(true)
+        }
+    }
+    
     @objc func showFlex() {
         #if canImport(FLEX)
         FLEXManager.shared.showExplorer()
         #endif
     }
+}
+
+extension StreamViewerController: AVPlayerViewControllerDelegate {
+    @IBAction func handlePlayPauseButton(_ sender: UIButton) {
+        if videoController.player?.rate != 0 {
+            videoController.player?.pause()
+            controlButton.setTitle("\u{f04b}", for: .normal)
+        } else {
+            videoController.player?.play()
+            controlButton.setTitle("\u{f04c}", for: .normal)
+        }
+    }
+    
+    
 }
 
 struct YTMessageSection: SectionModelType {

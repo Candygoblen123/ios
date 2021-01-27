@@ -31,11 +31,20 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(gesture)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(checkPasteboard),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        checkPasteboard()
+    }
+    
+    @objc func checkPasteboard() {
         let pasteboard = UIPasteboard.general.urls ?? []
         
         for url in pasteboard {

@@ -134,7 +134,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
 
 extension StreamViewerController: AVPlayerViewControllerDelegate {
     @IBAction func handlePlayPauseButton(_ sender: UIButton) {
-        if videoController.player?.rate != 0 {
+        if videoController.player?.timeControlStatus == .playing {
             videoController.player?.pause()
             controlButton.setTitle("\u{f04b}", for: .normal)
         } else {

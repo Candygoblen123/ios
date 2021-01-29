@@ -54,7 +54,7 @@ class ActionViewController: UIViewController {
     
     func perform(with url: URL) {
         let components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-        guard let vId = components.queryItems?.filter { $0.name == "v" }.first?.value else {
+        guard let vId = components.queryItems?.filter({ $0.name == "v" }).first?.value else {
             // show error in modal
             print("could not get vId")
             return

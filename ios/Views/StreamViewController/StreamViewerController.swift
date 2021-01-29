@@ -31,8 +31,8 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     
     var videoController: AVPlayerViewController!
     
-    var viewLoadedObservable  = BehaviorRelay<Bool>(value: false)
-    let chatEventObservable   = BehaviorRelay<(Double, String)?>(value: nil)
+    var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
+    let chatEventObservable  = BehaviorRelay<(Double, String)?>(value: nil)
     
     let bag = DisposeBag()
 

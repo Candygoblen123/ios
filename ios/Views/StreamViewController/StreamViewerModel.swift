@@ -84,7 +84,7 @@ extension StreamViewerModel: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let attrs: Dictionary<NSAttributedString.Key, Any> = [
-            .font: UIFont(name: "FontAwesome5Pro-Solid", size: 20),
+            .font: UIFont(name: "FontAwesome5Pro-Solid", size: 20)!,
             .foregroundColor: UIColor.white
         ]
         

@@ -30,20 +30,20 @@ class AppFlow: Flow {
         case .settingsDone: return doneSettings()
         case .viewDone: return doneView()
             
-        default: return .none
+//        default: return .none
         }
     }
     
     private func toHome() -> FlowContributors {
         let controller = HomeViewController.instantiate(self.stepper, services: services)        
-        rootViewController.pushViewController(controller, animated: true)
+        rootViewController.setViewControllers([controller], animated: true)
 
         return .none
     }
     private func toStream(_ id: String) -> FlowContributors {
         let controller = StreamViewerController.instantiate(self.stepper, services: services)
         controller.loadStreamWithId(id: id)
-        rootViewController.pushViewController(controller, animated: true)
+        rootViewController.setViewControllers([controller], animated: true)
         
         return .none
     }

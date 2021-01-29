@@ -45,14 +45,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let rightButton = UIBarButtonItem(title: "settings", style: .plain, target: self, action: #selector(handleMenu))
-        rightButton.setTitleTextAttributes([
-            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!
-        ], for: .normal)
-        navigationController?.navigationItem.rightBarButtonItem = rightButton
-        navigationController?.navigationItem.title = "LiveTL"
-        
+                
         view.addGestureRecognizer(gesture)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 500
@@ -99,12 +92,12 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
                 self.injectorView.evaluateJavaScript(js, completionHandler: nil)
             }).disposed(by: bag)
         
-        barButton.setTitleTextAttributes([
-            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-        ], for: .normal)
-        barButton.setTitleTextAttributes([
-            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-        ], for: .selected)
+//        barButton.setTitleTextAttributes([
+//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+//        ], for: .normal)
+//        barButton.setTitleTextAttributes([
+//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+//        ], for: .selected)
         
         viewLoadedObservable.accept(true)
         

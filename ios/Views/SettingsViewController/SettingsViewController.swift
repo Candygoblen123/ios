@@ -10,26 +10,6 @@ import Eureka
 import Reusable
 import RxSwift
 
-enum TranslatedLanguageTag: Int, CustomStringConvertible, CaseIterable {
-    case en, jp, es, id, kr, zh, ru, fr
-    case dev
-    
-    var description: String {
-        switch self {
-        case .en: return "English"
-        case .jp: return "Japanese"
-        case .es: return "Spanish"
-        case .id: return "Indonesian"
-        case .kr: return "Korean"
-        case .zh: return "Chinese"
-        case .ru: return "Russian"
-        case .fr: return "French"
-            
-        case .dev: return "Developer Tags"
-        }
-    }
-}
-
 class SettingsViewController: FormViewController, StoryboardBased, BaseController {
     var model: SettingsViewModel!
     let bag = DisposeBag()

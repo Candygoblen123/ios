@@ -38,6 +38,8 @@
 		66DEFF5E25A6E2700071D27B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5C25A6E2700071D27B /* Main.storyboard */; };
 		66DEFF6025A6E2710071D27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF5F25A6E2710071D27B /* Assets.xcassets */; };
 		66DEFF6325A6E2710071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF6125A6E2710071D27B /* LaunchScreen.storyboard */; };
+		66E19D8925C3D7BE00A2AA9B /* TranslatedLanguageTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E19D8825C3D7BE00A2AA9B /* TranslatedLanguageTag.swift */; };
+		66E19DA025C3D99500A2AA9B /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E19D9F25C3D99500A2AA9B /* Defaults.swift */; };
 		66E656D125BA95F9007CE809 /* YTInjectedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */; };
 		66E6570C25BBD15A007CE809 /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6570B25BBD15A007CE809 /* TableViewExtension.swift */; };
 		66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6571025BBDC56007CE809 /* ChatTextCell.swift */; };
@@ -114,6 +116,8 @@
 		66DEFF6225A6E2710071D27B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66DEFF6425A6E2710071D27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66DEFFD025A70AEB0071D27B /* ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ios.entitlements; sourceTree = "<group>"; };
+		66E19D8825C3D7BE00A2AA9B /* TranslatedLanguageTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguageTag.swift; sourceTree = "<group>"; };
+		66E19D9F25C3D99500A2AA9B /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTInjectedMessage.swift; sourceTree = "<group>"; };
 		66E6570B25BBD15A007CE809 /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		66E6571025BBDC56007CE809 /* ChatTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextCell.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				663D81D925A782C8009AD901 /* BaseController.swift */,
 				663D81DA25A782C8009AD901 /* BaseModel.swift */,
 				66E6570B25BBD15A007CE809 /* TableViewExtension.swift */,
+				66E19D9F25C3D99500A2AA9B /* Defaults.swift */,
 			);
 			path = Bootstrap;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				66E656D025BA95F9007CE809 /* YTInjectedMessage.swift */,
+				66E19D8825C3D7BE00A2AA9B /* TranslatedLanguageTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -584,6 +590,7 @@
 			files = (
 				66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */,
 				66865D5F25BFFEE800DB5C3C /* PlayerView.swift in Sources */,
+				66E19D8925C3D7BE00A2AA9B /* TranslatedLanguageTag.swift in Sources */,
 				663D81F725A782EA009AD901 /* StreamViewerController.swift in Sources */,
 				66E6571225BBDC56007CE809 /* ChatTextCell.swift in Sources */,
 				663D81EF25A782DF009AD901 /* AppStep.swift in Sources */,
@@ -591,6 +598,7 @@
 				66F2A4FC25ACE41E00B271AA /* AuthService.swift in Sources */,
 				663D81E725A782D9009AD901 /* BaseModel.swift in Sources */,
 				66F2A52125ACF1BC00B271AA /* HomeModel.swift in Sources */,
+				66E19DA025C3D99500A2AA9B /* Defaults.swift in Sources */,
 				663D81FE25A78360009AD901 /* HomeViewController.swift in Sources */,
 				66E6570C25BBD15A007CE809 /* TableViewExtension.swift in Sources */,
 				663D81EB25A782DC009AD901 /* AppFlow.swift in Sources */,

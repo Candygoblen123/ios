@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFM-Uz-GuL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -34,16 +35,7 @@
                             <constraint firstItem="ZJc-hW-LQg" firstAttribute="centerX" secondItem="jc0-vc-n1X" secondAttribute="centerX" id="nQO-QH-zpU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Uff-26-YAp">
-                        <barButtonItem key="rightBarButtonItem" title="cogs" style="plain" id="hu1-v5-hbV">
-                            <connections>
-                                <action selector="handleMenu" destination="VFM-Uz-GuL" id="o59-jx-Lb2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="barButton" destination="hu1-v5-hbV" id="JUU-mq-ob5"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Uff-26-YAp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpd-OF-J9N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

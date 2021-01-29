@@ -7,7 +7,7 @@ target 'ios' do
   pod 'FontBlaster'
   pod 'Reusable'
   pod 'SwiftDate'
-  pod 'SwiftSoup'
+  pod 'SwiftyUserDefaults'
   pod 'XCDYouTubeKit'
 
   pod 'RxCocoa'

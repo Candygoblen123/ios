@@ -89,12 +89,17 @@ extension StreamViewerModel: WKScriptMessageHandler {
             liveChat.accept(full)
             
             var translated = translatedChat.value
-            let mapTranslated = items.messages.compactMap { YTTranslatedMessage(from: $0) }
+            let mapTranslated = items.messages.compactMap(map)
             translated.append(contentsOf: mapTranslated)
             translatedChat.accept(translated)
         } catch {
             print(error)
         }
+    }
+    
+    func map(_ translated: YTRawMessage) -> YTTranslatedMessage? {
+        
+        return nil
     }
 }
 

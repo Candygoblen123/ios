@@ -96,11 +96,16 @@ struct YTTranslatedMessage {
                     let endToken = s.firstIndex(of: token.end)
                 else { continue }
                 
-                guard beginToken < endToken, s.distance(from: beginToken, to: endToken) <= 5 else { continue }
+                guard beginToken < endToken else { continue }
                 
                 let lang = String(s[beginToken..<endToken])
                     .replacingOccurrences(of: "\(token.start)", with: "")
                     .replacingOccurrences(of: "\(token.end)", with: "")
+                    .replacingOccurrences(of: " ", with: "")
+                    .lowercased()
+                
+                let validTags = TranslatedLanguageTag.allCases.map { $0.tag }
+                guard !validTags.contains(lang) else { continue }
                 
                 let msgStart = s.index(after: endToken)
                 let msg = String(s[msgStart..<s.endIndex])

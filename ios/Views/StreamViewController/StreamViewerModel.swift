@@ -63,14 +63,46 @@ class StreamViewerModel: BaseModel {
                 self.chatUrl.accept(URL(string: chatUrlFinal))
             }
         }.resume()
-        
-//        chatUrl.compactMap { $0 }.subscribe(onNext: { print($0.absoluteString) }).disposed(by: bag)
+    }
+    
+    func handleFavoriteUser(at index: IndexPath) {
+        let value = chatRelay.value[index.row]
+        let author = value.displayAuthor
+        settings.alwaysUsers.append(author)
+    }
+    func handleMuteUser(at index: IndexPath) {
+        let value = chatRelay.value[index.row]
+        let author = value.displayAuthor
+        settings.neverUsers.append(author)
     }
 }
 
 extension StreamViewerModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let attrs: Dictionary<NSAttributedString.Key, Any> = [
+            .font: UIFont(name: "FontAwesome5Pro-Solid", size: 20),
+            .foregroundColor: UIColor.white
+        ]
+        
+        let favorite = UIContextualAction(style: .normal, title: "") { [indexPath] (_, _, completion) in
+            self.handleFavoriteUser(at: indexPath)
+            completion(true)
+        }
+        favorite.image = "\u{f005}".image(withAttributes: attrs, size: CGSize(width: 25, height: 20))
+        favorite.backgroundColor = .systemGreen
+        
+        let mute = UIContextualAction(style: .normal, title: "") { [indexPath] (_, _, completion) in
+            self.handleMuteUser(at: indexPath)
+            completion(true)
+        }
+        mute.image = "\u{f4b3}".image(withAttributes: attrs, size: CGSize(width: 25, height: 20))
+        mute.backgroundColor = .systemRed
+        
+        return UISwipeActionsConfiguration(actions: [favorite, mute])
     }
 }
 
@@ -141,4 +173,12 @@ extension String {
             return []
         }
     }
+    
+    func image(withAttributes attributes: [NSAttributedString.Key: Any]? = nil, size: CGSize? = nil) -> UIImage? {
+            let size = size ?? (self as NSString).size(withAttributes: attributes)
+            return UIGraphicsImageRenderer(size: size).image { _ in
+                (self as NSString).draw(in: CGRect(origin: .zero, size: size),
+                                        withAttributes: attributes)
+            }
+        }
 }

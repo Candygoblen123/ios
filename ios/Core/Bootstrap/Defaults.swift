@@ -17,4 +17,23 @@ extension DefaultsKeys {
     var never_users : DefaultsKey<[String]> { .init("never_shown_users", defaultValue: []) }
 }
 
+struct AppSettings {
+    static var shared: AppSettings = AppSettings()
+    
+    @SwiftyUserDefault(keyPath: \.languages)
+    var languages: [TranslatedLanguageTag]
+    
+    @SwiftyUserDefault(keyPath: \.mod_messages)
+    var modMessages: Bool
+    
+    @SwiftyUserDefault(keyPath: \.timestamps)
+    var timestamps: Bool
+    
+    @SwiftyUserDefault(keyPath: \.always_users)
+    var alwaysUsers: [String]
+    
+    @SwiftyUserDefault(keyPath: \.never_users)
+    var neverUsers: [String]
+}
+
 extension TranslatedLanguageTag: DefaultsSerializable, RawRepresentable {}

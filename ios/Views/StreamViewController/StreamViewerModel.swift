@@ -25,6 +25,8 @@ class StreamViewerModel: BaseModel {
     private let liveChat       = BehaviorRelay<[YTRawMessage]>(value: [])
     private let translatedChat = BehaviorRelay<[DisplayableMessage]>(value: [])
     
+    let settings = AppSettings.shared
+    
     required init(_ stepper: Stepper, services: AppService) {
         super.init(stepper, services: services)
 
@@ -38,7 +40,7 @@ class StreamViewerModel: BaseModel {
         emptyTable.filter { $0 }.subscribe(onNext: { [chatRelay] _ in chatRelay.accept([]) }).disposed(by: bag)
     }
     
-    func performChatLoad(_ id: String) {
+    func performChatLoad(_ id: String, duration: Double) {
         let pattern = """
         continuation":"(\\w+)"
         """
@@ -49,7 +51,7 @@ class StreamViewerModel: BaseModel {
         request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15", forHTTPHeaderField: "User-Agent")
         URLSession.shared.dataTask(with: request) { data, _, _ in
             if let data = data, let html = String(data: data, encoding: .utf8) {
-                if let token = html.groups(for: pattern).first?.last {
+                if let token = html.groups(for: pattern).first?.last, duration > 0 {
                     // is replay stream
                     chatUrlFinal.append("_replay?v=\(id)&continuation=\(token)&embed_domain=www.livetl.app&app=desktop")
                     self.replayControl.accept(true)
@@ -85,6 +87,7 @@ extension StreamViewerModel: WKScriptMessageHandler {
             let items = try decoder.decode(YTInjectedMessageChunk.self, from: data)
             
             var full = liveChat.value
+            full = full.filter { !settings.neverUsers.contains($0.displayAuthor) }
             full.append(contentsOf: items.messages)
             liveChat.accept(full)
             
@@ -97,7 +100,17 @@ extension StreamViewerModel: WKScriptMessageHandler {
         }
     }
     
-    func map(_ translated: YTRawMessage) -> YTTranslatedMessage? {
+    func map(_ translated: YTRawMessage) -> DisplayableMessage? {
+        if let message = YTTranslatedMessage(from: translated) {
+            if let l = message.langTag, settings.languages.contains(l) {
+                return message
+            }
+        }
+        if settings.alwaysUsers.contains(translated.author.name) { return translated }
+        
+        if settings.modMessages, translated.author.types.contains("Moderator") {
+            return translated
+        }
         
         return nil
     }

@@ -39,12 +39,12 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
-//        barButton.setTitleTextAttributes([
-//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-//        ], for: .normal)
-//        barButton.setTitleTextAttributes([
-//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-//        ], for: .selected)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .normal)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .selected)
     }
     
     override func viewDidAppear(_ animated: Bool) {

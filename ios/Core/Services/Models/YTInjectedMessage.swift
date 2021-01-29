@@ -82,6 +82,10 @@ struct YTTranslatedMessage {
     let language : String!
     let timestamp: Date
     
+    var langTag: TranslatedLanguageTag? {
+        return TranslatedLanguageTag(language.lowercased())
+    }
+    
     init?(from message: YTRawMessage) {
         author = Author(from: message.author)
         timestamp = message.timestamp
@@ -105,7 +109,7 @@ struct YTTranslatedMessage {
                     .lowercased()
                 
                 let validTags = TranslatedLanguageTag.allCases.map { $0.tag }
-                guard !validTags.contains(lang) else { continue }
+                guard validTags.contains(lang.lowercased()) else { continue }
                 
                 let msgStart = s.index(after: endToken)
                 let msg = String(s[msgStart..<s.endIndex])

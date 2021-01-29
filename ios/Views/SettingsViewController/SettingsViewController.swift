@@ -9,11 +9,14 @@ import UIKit
 import Eureka
 import Reusable
 import RxSwift
+import SwiftyUserDefaults
 
 class SettingsViewController: FormViewController, StoryboardBased, BaseController {
     var model: SettingsViewModel!
     let bag = DisposeBag()
 
+    let settings = AppSettings.shared
+    
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -24,62 +27,92 @@ class SettingsViewController: FormViewController, StoryboardBased, BaseControlle
         
             <<< MultipleSelectorRow<String>("lang_select") { row in
                 row.options = TranslatedLanguageTag.allCases.map { $0.description }
+                row.value = Set(settings.languages.map { $0.description })
                 row.title = "Languages"
                 row.noValueDisplayText = "No languages selected"
                 row.displayValueFor = { values -> String? in
-                    values?.joined(separator: ", ")
+                    values.map { $0.map { $0.description } }?.joined(separator: ", ")
+                }
+            }.onChange { row in
+                if let value = row.value {
+                    self.settings.languages = Array(value).compactMap { TranslatedLanguageTag($0) }
                 }
             }
         
             <<< SwitchRow("mod_enabled") { row in
                 row.title = "Mod Messages"
-                row.value = true
+                row.value = settings.modMessages
+            }.onChange { row in
+                if let value = row.value {
+                    self.settings.modMessages = value
+                }
             }
             
             <<< SwitchRow("timestamps_enabled") { row in
                 row.title = "Show Timestamps"
-                row.value = true
+                row.value = settings.timestamps
+            }.onChange { row in
+                if let value = row.value {
+                    self.settings.timestamps = value
+                }
             }
         
             +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
                                    header: "Allowed Users",
-                                   footer: "These users are always shown, even if they don't translate a message") { row in
+                                   footer: "These users are always shown, even if they don't translate a message") { section in
                 
-                row.addButtonProvider = { section in
+                section.tag = "always_users_section"
+                
+                section.addButtonProvider = { section in
                     return ButtonRow(){
                         $0.title = "Tap to Add User"
                     }
                 }
-                row.multivaluedRowToInsertAt = { index in
+                section.multivaluedRowToInsertAt = { index in
                     return AccountRow() {
                         $0.placeholder = "Username"
                     }
                 }
-                row <<< AccountRow() {
+                
+                for user in settings.alwaysUsers {
+                    section <<< AccountRow() {
+                        $0.placeholder = "Username"
+                        $0.value = user
+                    }
+                }
+                
+                section <<< AccountRow() {
                     $0.placeholder = "Username"
                 }
             }
         
             +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
                                    header: "Blocked Users",
-                                   footer: "These users are never shown, even if they translate a message") { row in
+                                   footer: "These users are never shown, even if they translate a message") { section in
+                section.tag = "never_users_section"
                 
-                row.addButtonProvider = { section in
+                section.addButtonProvider = { section in
                     return ButtonRow(){
                         $0.title = "Tap to Add User"
                     }
                 }
-                row.multivaluedRowToInsertAt = { index in
+                section.multivaluedRowToInsertAt = { index in
                     return AccountRow() {
                         $0.placeholder = "Username"
                     }
                 }
-                row <<< AccountRow() {
+                
+                for user in settings.neverUsers {
+                    section <<< AccountRow() {
+                        $0.placeholder = "Username"
+                        $0.value = user
+                    }
+                }
+                
+                section <<< AccountRow() {
                     $0.placeholder = "Username"
                 }
-
             }
-
     }
     
     @objc func viewDone() {
@@ -87,6 +120,15 @@ class SettingsViewController: FormViewController, StoryboardBased, BaseControlle
     }
     
     @IBAction func settingsDone() {
+        let values = form.values()
+        
+        if let always = values["always_users_section"] as? Array<String> {
+            settings.alwaysUsers = always
+        }
+        if let never = values["never_users_section"] as? Array<String> {
+            settings.neverUsers = never
+        }
+        
         model.stepper.steps.accept(AppStep.settingsDone)
     }
 }

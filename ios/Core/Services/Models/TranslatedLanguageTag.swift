@@ -40,5 +40,22 @@ enum TranslatedLanguageTag: String, CustomStringConvertible, CaseIterable {
         case .dev: return "dev"
         }
     }
+    
+    init?(_ from: String) {
+        switch from {
+        case "English", "en"   : self = .en
+        case "Japanese", "jp"  : self = .jp
+        case "Spanish", "es"   : self = .es
+        case "Indonesian", "id": self = .id
+        case "Korean", "kr"    : self = .kr
+        case "Chinese", "zh"   : self = .zh
+        case "Russian", "ru"   : self = .ru
+        case "French", "fr"    : self = .fr
+            
+        case "Developer Tags", "dev": self = .dev
+            
+        default: return nil
+        }
+    }
 }
 

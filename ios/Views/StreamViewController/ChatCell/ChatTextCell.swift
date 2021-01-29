@@ -16,11 +16,15 @@ class ChatTextCell: UITableViewCell, NibReusable {
     @IBOutlet weak var author  : UILabel!
     @IBOutlet weak var datetime: UILabel!
     
+    let settings = AppSettings.shared
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
     func use(_ item: DisplayableMessage) {
+        datetime.isHidden = !settings.timestamps
+        
         author.text = item.displayAuthor
         datetime.text = item.displayTimestamp
 

@@ -81,7 +81,6 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
                 }
             }).disposed(by: bag)
         
-        chatEventObservable.compactMap { $0?.0 }.subscribe(onNext: { time in print(time) }).disposed(by: bag)
         Observable.combineLatest(model.replayControl, chatEventObservable).filter { $0.0 == true }
             .compactMap { $0.1 }
             .subscribe(onNext: { (time, id) in
@@ -89,15 +88,17 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
                     window.postMessage({ "yt-player-video-progress": \(time), video: "\(id)"}, '*');
                 """
                 
-                self.injectorView.evaluateJavaScript(js, completionHandler: nil)
+                DispatchQueue.main.async {
+                    self.injectorView.evaluateJavaScript(js, completionHandler: nil)
+                }
             }).disposed(by: bag)
         
-//        barButton.setTitleTextAttributes([
-//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-//        ], for: .normal)
-//        barButton.setTitleTextAttributes([
-//            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
-//        ], for: .selected)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .normal)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .selected)
         
         viewLoadedObservable.accept(true)
         
@@ -120,7 +121,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
                 
                 if let video = video {
                     self?.handleUpdateVideoController(video)
-                    self?.model.performChatLoad(video.identifier)
+                    self?.model.performChatLoad(video.identifier, duration: video.duration)
                 } else { print("cant get video") }
             }
         }).disposed(by: bag)

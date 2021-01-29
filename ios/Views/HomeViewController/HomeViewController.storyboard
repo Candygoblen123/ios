@@ -35,7 +35,16 @@
                             <constraint firstItem="ZJc-hW-LQg" firstAttribute="centerX" secondItem="jc0-vc-n1X" secondAttribute="centerX" id="nQO-QH-zpU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Uff-26-YAp"/>
+                    <navigationItem key="navigationItem" id="Uff-26-YAp">
+                        <barButtonItem key="rightBarButtonItem" title="cogs" id="0dL-Jb-dVO">
+                            <connections>
+                                <action selector="handleMenu" destination="VFM-Uz-GuL" id="Zor-C0-UdP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barButton" destination="0dL-Jb-dVO" id="yzK-J1-T5M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpd-OF-J9N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

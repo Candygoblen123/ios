@@ -1,10 +1,13 @@
 target 'ios' do
-  platform :ios, '14.0'
+  platform :ios, '13.0'
   use_frameworks!
   inhibit_all_warnings!
 
+  pod 'Eureka'
+  pod 'FontBlaster'
   pod 'Reusable'
   pod 'SwiftDate'
+  pod 'SwiftSoup'
   pod 'XCDYouTubeKit'
 
   pod 'RxCocoa'

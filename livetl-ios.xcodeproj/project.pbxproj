@@ -24,11 +24,13 @@
 		66865D6E25C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6925C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf */; };
 		66865D6F25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6A25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf */; };
 		66865D7025C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66865D6B25C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf */; };
+		669CBBC525C0E83C0048EFF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669CBBC425C0E83C0048EFF9 /* SettingsViewController.swift */; };
+		669CBBCD25C0E8410048EFF9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669CBBCC25C0E8410048EFF9 /* SettingsViewModel.swift */; };
+		669CBBD225C0E84A0048EFF9 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669CBBD125C0E84A0048EFF9 /* SettingsViewController.storyboard */; };
 		66DE002225A70E6D0071D27B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE002125A70E6D0071D27B /* ActionViewController.swift */; };
 		66DE002925A70E6D0071D27B /* yt-translate.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 66DE001D25A70E6D0071D27B /* yt-translate.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66DE004325A7173A0071D27B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DE004225A7173A0071D27B /* MainInterface.storyboard */; };
 		66DEFF4025A6E24A0071D27B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF3F25A6E24A0071D27B /* AppDelegate.swift */; };
-		66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF4125A6E24A0071D27B /* SceneDelegate.swift */; };
 		66DEFF4925A6E24B0071D27B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF4825A6E24B0071D27B /* Assets.xcassets */; };
 		66DEFF4C25A6E24B0071D27B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66DEFF4A25A6E24B0071D27B /* LaunchScreen.storyboard */; };
 		66DEFF5925A6E2700071D27B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DEFF5825A6E2700071D27B /* AppDelegate.swift */; };
@@ -91,6 +93,9 @@
 		66865D6925C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Regular-400.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
 		66865D6A25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Light-300.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Light-300.otf"; sourceTree = SOURCE_ROOT; };
 		66865D6B25C003E600DB5C3C /* Font Awesome 5 Pro-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Pro-Solid-900.otf"; path = "FontAwesome/otfs/Font Awesome 5 Pro-Solid-900.otf"; sourceTree = SOURCE_ROOT; };
+		669CBBC425C0E83C0048EFF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		669CBBCC25C0E8410048EFF9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		669CBBD125C0E84A0048EFF9 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		66DE001D25A70E6D0071D27B /* yt-translate.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "yt-translate.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DE001F25A70E6D0071D27B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		66DE002125A70E6D0071D27B /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +103,6 @@
 		66DE004225A7173A0071D27B /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		66DEFF3C25A6E24A0071D27B /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DEFF3F25A6E24A0071D27B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66DEFF4125A6E24A0071D27B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		66DEFF4825A6E24B0071D27B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66DEFF4B25A6E24B0071D27B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66DEFF4D25A6E24B0071D27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				663D81FC25A78345009AD901 /* HomeViewController */,
 				663D81D725A782C8009AD901 /* StreamViewController */,
+				669CBBC325C0E82D0048EFF9 /* SettingsViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +236,16 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		669CBBC325C0E82D0048EFF9 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				669CBBC425C0E83C0048EFF9 /* SettingsViewController.swift */,
+				669CBBCC25C0E8410048EFF9 /* SettingsViewModel.swift */,
+				669CBBD125C0E84A0048EFF9 /* SettingsViewController.storyboard */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
 		66DE001E25A70E6D0071D27B /* yt-translate */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,7 +284,6 @@
 			children = (
 				66DEFFD025A70AEB0071D27B /* ios.entitlements */,
 				66DEFF3F25A6E24A0071D27B /* AppDelegate.swift */,
-				66DEFF4125A6E24A0071D27B /* SceneDelegate.swift */,
 				663D81DF25A782C8009AD901 /* Core */,
 				663D81D825A782C8009AD901 /* Views */,
 				66DEFF7825A6E5210071D27B /* Resources */,
@@ -473,6 +487,7 @@
 				66E6571325BBDC56007CE809 /* ChatTextCell.xib in Resources */,
 				66865D6D25C003E600DB5C3C /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				6672687D25B20B1B00C5AC95 /* WindowInjector.js in Resources */,
+				669CBBD225C0E84A0048EFF9 /* SettingsViewController.storyboard in Resources */,
 				66865D6E25C003E600DB5C3C /* Font Awesome 5 Pro-Regular-400.otf in Resources */,
 				66865D6F25C003E600DB5C3C /* Font Awesome 5 Pro-Light-300.otf in Resources */,
 			);
@@ -579,10 +594,11 @@
 				663D81FE25A78360009AD901 /* HomeViewController.swift in Sources */,
 				66E6570C25BBD15A007CE809 /* TableViewExtension.swift in Sources */,
 				663D81EB25A782DC009AD901 /* AppFlow.swift in Sources */,
+				669CBBC525C0E83C0048EFF9 /* SettingsViewController.swift in Sources */,
 				66E656D125BA95F9007CE809 /* YTInjectedMessage.swift in Sources */,
 				66F2A50425ACE79000B271AA /* AppServices.swift in Sources */,
-				66DEFF4225A6E24A0071D27B /* SceneDelegate.swift in Sources */,
 				663D81F325A782E4009AD901 /* StreamViewerModel.swift in Sources */,
+				669CBBCD25C0E8410048EFF9 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +708,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "yt-translate/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -767,7 +783,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "yt-translate/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -861,7 +877,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -934,7 +950,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

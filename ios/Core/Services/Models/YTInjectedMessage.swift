@@ -96,7 +96,7 @@ struct YTTranslatedMessage {
                     let endToken = s.firstIndex(of: token.end)
                 else { continue }
                 
-                guard beginToken < endToken else { continue }
+                guard beginToken < endToken, s.distance(from: beginToken, to: endToken) <= 5 else { continue }
                 
                 let lang = String(s[beginToken..<endToken])
                     .replacingOccurrences(of: "\(token.start)", with: "")
@@ -133,7 +133,7 @@ struct YTRawMessage: Decodable {
     let author: Author
     let messages: [Message]
     let timestamp: Date
-    let showtime: Int
+    let showtime: Float?
     
     struct Author: Decodable {
         let name : String

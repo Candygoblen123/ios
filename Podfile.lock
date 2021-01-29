@@ -1,6 +1,8 @@
 PODS:
   - Differentiator (5.0.0)
-  - FLEX (4.3.0)
+  - Eureka (5.3.2)
+  - FLEX (4.4.0)
+  - FontBlaster (5.1.3)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -20,22 +22,28 @@ PODS:
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
   - SwiftDate (6.3.1)
+  - SwiftSoup (2.3.2)
   - XCDYouTubeKit (2.15.2)
 
 DEPENDENCIES:
+  - Eureka
   - FLEX
+  - FontBlaster
   - Reusable
   - RxCocoa
   - RxDataSources
   - RxFlow
   - RxSwift
   - SwiftDate
+  - SwiftSoup
   - XCDYouTubeKit
 
 SPEC REPOS:
   trunk:
     - Differentiator
+    - Eureka
     - FLEX
+    - FontBlaster
     - Reusable
     - RxCocoa
     - RxDataSources
@@ -43,11 +51,14 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SwiftDate
+    - SwiftSoup
     - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  FLEX: 58820af8881284bdd44e36141c607b8199cca45d
+  Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
+  FLEX: 0592c011c6dfbfdb94a5e24f2d4a9dbff0c6026d
+  FontBlaster: 5bbc2d94d5731e9bad4f46172e58b1106af99516
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
@@ -55,8 +66,9 @@ SPEC CHECKSUMS:
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  SwiftSoup: f97bc4e988c7729d6457f9642f974c617a6e2510
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: 1bf04ed3532510f93bd361814bc3f44f43d1d71d
+PODFILE CHECKSUM: 6ea5c16b6126a73a90cff8cbaebe0125690306b3
 
 COCOAPODS: 1.10.1

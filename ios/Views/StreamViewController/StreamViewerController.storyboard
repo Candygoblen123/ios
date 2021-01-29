@@ -2,16 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r0y-Sw-RBS">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Font Awesome 5 Pro-Regular-400.otf">
-            <string>FontAwesome5Pro-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Stream Viewer Controller-->
         <scene sceneID="qzG-vS-Ltl">
@@ -52,33 +48,6 @@
                                     <segue destination="fsm-Cz-GsD" kind="embed" identifier="loadPlayer" id="1QR-0S-1rR"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mh-GV-IqB">
-                                <rect key="frame" x="20" y="242" width="335" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAR-9c-yOD">
-                                        <rect key="frame" x="8" y="1" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="FontAwesome5Pro-Regular" family="Font Awesome 5 Pro" pointSize="17"/>
-                                        <state key="normal" title=""/>
-                                        <connections>
-                                            <action selector="handlePlayPauseButton:" destination="r0y-Sw-RBS" eventType="touchUpInside" id="wpR-aR-4X5"/>
-                                        </connections>
-                                    </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CP5-LS-yqw">
-                                        <rect key="frame" x="44" y="0.0" width="243" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETK-2t-io5">
-                                        <rect key="frame" x="293" y="0.0" width="42" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zMP-vj-mrv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -108,10 +77,17 @@
                             <constraint firstItem="tOq-iH-7BA" firstAttribute="top" secondItem="Kt9-dp-bhz" secondAttribute="bottom" constant="76" id="qDE-p9-6bm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uM4-fc-ERv">
+                        <barButtonItem key="rightBarButtonItem" title="cogs" id="z4L-ys-AL8">
+                            <connections>
+                                <action selector="handleMenu" destination="r0y-Sw-RBS" id="7Mn-hN-oLX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="barButton" destination="z4L-ys-AL8" id="DXb-UD-MIg"/>
                         <outlet property="chatControl" destination="beg-fZ-4qf" id="Fop-wH-A7Z"/>
-                        <outlet property="controlButton" destination="JAR-9c-yOD" id="wS2-kC-p6j"/>
                         <outlet property="injectorView" destination="6km-c5-mjl" id="k9x-Kl-tX7"/>
                         <outlet property="tableView" destination="tOq-iH-7BA" id="nVV-f4-aMK"/>
                         <outlet property="videoView" destination="Kt9-dp-bhz" id="cdy-E9-wgX"/>
@@ -119,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rh-WK-PvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-16.800000000000001" y="107.88177339901478"/>
+            <point key="canvasLocation" x="925.60000000000002" y="107.88177339901478"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="8vI-zI-5zf">
@@ -127,7 +103,25 @@
                 <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspect" id="fsm-Cz-GsD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xG-b3-xEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="159"/>
+            <point key="canvasLocation" x="1692" y="158.86699507389164"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9fw-f4-vRW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="njo-tq-7Jm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VTz-dW-Q6Q">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="r0y-Sw-RBS" kind="relationship" relationship="rootViewController" id="J6V-zP-nvw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Cw-7v-HrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16.800000000000001" y="107.88177339901478"/>
         </scene>
     </scenes>
     <resources>

@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
     
     let bag = DisposeBag()
     
+    @IBOutlet weak var barButton: UIBarButtonItem!
+    
     var gesture: UITapGestureRecognizer {
         let g = UITapGestureRecognizer(target: self, action: #selector(showFlex))
         g.numberOfTouchesRequired = 2
@@ -36,6 +38,13 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
                                                selector: #selector(checkPasteboard),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
+        
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .normal)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .selected)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,7 +68,7 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
                         final = url.path.replacingOccurrences(of: "/", with: "")
                     }
                     
-                    self.stepper.steps.accept(AppStep.view(id: final))
+                    self.model.stepper.steps.accept(AppStep.view(id: final))
                     
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
@@ -71,6 +80,10 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
         }
     }
     
+    @IBAction func handleMenu() {
+        model.stepper.steps.accept(AppStep.settings)
+    }
+
     @objc func showFlex() {
         #if canImport(FLEX)
             FLEXManager.shared.showExplorer()

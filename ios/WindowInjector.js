@@ -2,6 +2,10 @@ for (event_name of ['visibilitychange', 'webkitvisibilitychange', 'blur']) {
     window.addEventListener(event_name, e => e.stopImmediatePropagation(), true);
 }
 
+//document.querySelector('#chat>#item-list').remove()
+
+
+
 window.fetchFallback = window.fetch;
 window.fetch = async (...args) => {
     const url = args[0].url;

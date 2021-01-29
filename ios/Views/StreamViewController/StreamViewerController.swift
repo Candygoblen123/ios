@@ -27,11 +27,13 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     @IBOutlet weak var chatControl : UISegmentedControl!
     @IBOutlet weak var injectorView: WKWebView!
     
-    @IBOutlet weak var controlButton: UIButton!
+    @IBOutlet weak var barButton    : UIBarButtonItem!
     
     var videoController: AVPlayerViewController!
     
-    var viewLoadedObservable = BehaviorRelay<Bool>(value: false)
+    var viewLoadedObservable  = BehaviorRelay<Bool>(value: false)
+    let chatEventObservable   = BehaviorRelay<(Double, String)?>(value: nil)
+    
     let bag = DisposeBag()
 
     var gesture: UITapGestureRecognizer {
@@ -43,6 +45,13 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rightButton = UIBarButtonItem(title: "settings", style: .plain, target: self, action: #selector(handleMenu))
+        rightButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!
+        ], for: .normal)
+        navigationController?.navigationItem.rightBarButtonItem = rightButton
+        navigationController?.navigationItem.title = "LiveTL"
         
         view.addGestureRecognizer(gesture)
         tableView.rowHeight = UITableView.automaticDimension
@@ -71,6 +80,34 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
+        model.chatUrl
+            .compactMap { $0 }
+            .subscribe(onNext: { url in
+                DispatchQueue.main.async {
+                    self.injectorView.load(URLRequest(url: url))
+                }
+            }).disposed(by: bag)
+        
+        chatEventObservable.compactMap { $0?.0 }.subscribe(onNext: { time in print(time) }).disposed(by: bag)
+        Observable.combineLatest(model.replayControl, chatEventObservable).filter { $0.0 == true }
+            .compactMap { $0.1 }
+            .subscribe(onNext: { (time, id) in
+                let js = """
+                    window.postMessage({ "yt-player-video-progress": \(time), video: "\(id)"}, '*');
+                """
+                
+                self.injectorView.evaluateJavaScript(js, completionHandler: nil)
+            }).disposed(by: bag)
+        
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .normal)
+        barButton.setTitleTextAttributes([
+            .font: UIFont(name: "FontAwesome5Pro-Regular", size: 20)!,
+        ], for: .selected)
+        
+        viewLoadedObservable.accept(true)
+        
         do {
             let path = Bundle.main.path(forResource: "WindowInjector", ofType: "js") ?? ""
             let js = try String(contentsOfFile: path, encoding: .utf8)
@@ -88,41 +125,39 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
             XCDYouTubeClient.default().getVideoWithIdentifier(id) { (video, error) in
                 guard error == nil else { print(error!); return }
                 
-                if let video = video, let url = video.streamURL {
-                    let player = AVPlayer(url: url)
-                    
-                    self?.handleUpdateVideoController(player)
+                if let video = video {
+                    self?.handleUpdateVideoController(video)
+                    self?.model.performChatLoad(video.identifier)
                 } else { print("cant get video") }
             }
-            
-            let request = URLRequest(url: URL(string: "https://www.youtube.com/live_chat?v=\(id)&embed_domain=www.livetl.app&app=desktop")!)
-            self?.injectorView.load(request)
         }).disposed(by: bag)
     }
     
-    func handleUpdateVideoController(_ player: AVPlayer) {
+    func handleUpdateVideoController(_ video: XCDYouTubeVideo) {
         if videoController != nil {
             videoController.view.removeFromSuperview()
             videoController.player?.pause()
+            videoController = nil
         }
         
-        videoController.showsPlaybackControls = false
-        videoController.player = player
+        videoController = AVPlayerViewController()
+        videoController.delegate = self
+        videoController.player = AVPlayer(url: video.streamURL!)
         
         addChild(videoController)
         videoController.view.frame = videoView.bounds
         videoController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         videoView.addSubview(videoController.view)
         videoController.didMove(toParent: self)
+
+        let time = CMTime(seconds: 0.25, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        videoController.player?.addPeriodicTimeObserver(forInterval: time, queue: .main) { time in
+            self.chatEventObservable.accept((time.seconds, video.identifier))
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loadPlayer" {
-            videoController = segue.destination as? AVPlayerViewController
-            guard videoController != nil else { print("video controller not accessed"); return }
-            
-            viewLoadedObservable.accept(true)
-        }
+    @IBAction func handleMenu() {
+        model.stepper.steps.accept(AppStep.settings)
     }
     
     @objc func showFlex() {
@@ -132,19 +167,7 @@ class StreamViewerController: UIViewController, StoryboardBased, BaseController 
     }
 }
 
-extension StreamViewerController: AVPlayerViewControllerDelegate {
-    @IBAction func handlePlayPauseButton(_ sender: UIButton) {
-        if videoController.player?.timeControlStatus == .playing {
-            videoController.player?.pause()
-            controlButton.setTitle("\u{f04b}", for: .normal)
-        } else {
-            videoController.player?.play()
-            controlButton.setTitle("\u{f04c}", for: .normal)
-        }
-    }
-    
-    
-}
+extension StreamViewerController: AVPlayerViewControllerDelegate {}
 
 struct YTMessageSection: SectionModelType {
     typealias Item = DisplayableMessage
@@ -156,5 +179,14 @@ struct YTMessageSection: SectionModelType {
     }
     init(items: [Item]) {
         self.items = items
+    }
+}
+
+extension TimeInterval {
+    func stringFromTimeInterval() -> String {
+        let seconds = self.truncatingRemainder(dividingBy: 60)
+        let minutes = (self / 60).truncatingRemainder(dividingBy: 60)
+        let hours = (self / 3600)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }

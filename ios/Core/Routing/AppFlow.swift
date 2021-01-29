@@ -17,7 +17,6 @@ class AppFlow: Flow {
     let services = AppService()
     
     init() {
-//        rootViewController.isNavigationBarHidden = true
     }
     
     func navigate(to step: Step) -> FlowContributors {
@@ -26,26 +25,47 @@ class AppFlow: Flow {
         switch step {
         case .home: return toHome()
         case .view(let id): return toStream(id)
+        case .settings: return toSettings()
+            
+        case .settingsDone: return doneSettings()
+        case .viewDone: return doneView()
             
         default: return .none
         }
     }
     
     private func toHome() -> FlowContributors {
-        let controller = HomeViewController.instantiate(self.stepper, services: services)
-        controller.stepper = self.stepper
-        
-        rootViewController.setViewControllers([controller], animated: true)
-        
+        let controller = HomeViewController.instantiate(self.stepper, services: services)        
+        rootViewController.pushViewController(controller, animated: true)
+
         return .none
     }
     private func toStream(_ id: String) -> FlowContributors {
         let controller = StreamViewerController.instantiate(self.stepper, services: services)
         controller.loadStreamWithId(id: id)
-        rootViewController.setViewControllers([controller], animated: true)
+        rootViewController.pushViewController(controller, animated: true)
         
         return .none
     }
+    private func toSettings() -> FlowContributors {
+        let controller = SettingsViewController.instantiate(self.stepper, services: services)
+        
+        let nav = UINavigationController(rootViewController: controller)
+        rootViewController.present(nav, animated: true, completion: nil)
+        
+        return .none
+    }
+    
+    private func doneSettings() -> FlowContributors {
+        rootViewController.dismiss(animated: true, completion: nil)
+        return .none
+    }
+    private func doneView() -> FlowContributors {
+        rootViewController.popViewController(animated: true)
+        return .none
+    }
+    
+    @objc func handleMenu() {}
 }
 
 struct AppStepper: Stepper {

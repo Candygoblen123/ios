@@ -52,14 +52,14 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "API_KEY"
-            value = "AIzaSyCTolnnzj6j5NCZiOt1BrIGxQ0qLj3s4Bc"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
             key = "OS_ACTIVITY_MODE"
             value = "disable"
             isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "V_ID"
+            value = "L1a0zYpKRHQ"
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>

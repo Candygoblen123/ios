@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coordinator.coordinate(flow: flow, with: flow.stepper)
 
+        if let video = ProcessInfo.processInfo.environment["V_ID"] {
+            coordinator.navigate(to: AppStep.view(id: video))
+        }
         
         return true
     }

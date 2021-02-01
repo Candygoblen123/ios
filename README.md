@@ -1,3 +1,3 @@
 # ios
 
-Fuck off and don't look
+Fuck off and do look

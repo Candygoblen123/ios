@@ -9,4 +9,5 @@ import Foundation
 
 struct AppService {
     let auth = AuthService()
+    let api = YTAPIServices()
 }

@@ -3,6 +3,10 @@ PODS:
   - Eureka (5.3.2)
   - FLEX (4.4.0)
   - FontBlaster (5.1.3)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
+  - Neon (0.4.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -18,22 +22,31 @@ PODS:
   - RxFlow (2.12.0):
     - RxCocoa (>= 6.0.0)
     - RxSwift (>= 6.0.0)
+  - RxKingfisher (2.0.0):
+    - Kingfisher (~> 5)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
+  - SCLAlertView (0.8)
   - SwiftDate (6.3.1)
-  - SwiftyUserDefaults (5.0.0)
+  - SwiftyUserDefaults (5.1.0)
   - XCDYouTubeKit (2.15.2)
 
 DEPENDENCIES:
   - Eureka
   - FLEX
   - FontBlaster
+  - Kingfisher
+  - Neon
   - Reusable
   - RxCocoa
   - RxDataSources
   - RxFlow
+  - RxKingfisher
   - RxSwift
+  - SCLAlertView
   - SwiftDate
   - SwiftyUserDefaults
   - XCDYouTubeKit
@@ -44,12 +57,16 @@ SPEC REPOS:
     - Eureka
     - FLEX
     - FontBlaster
+    - Kingfisher
+    - Neon
     - Reusable
     - RxCocoa
     - RxDataSources
     - RxFlow
+    - RxKingfisher
     - RxRelay
     - RxSwift
+    - SCLAlertView
     - SwiftDate
     - SwiftyUserDefaults
     - XCDYouTubeKit
@@ -59,16 +76,20 @@ SPEC CHECKSUMS:
   Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
   FLEX: 0592c011c6dfbfdb94a5e24f2d4a9dbff0c6026d
   FontBlaster: 5bbc2d94d5731e9bad4f46172e58b1106af99516
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxFlow: b407eb6b5d956041a9e0930469346e104911a470
+  RxKingfisher: d13ea82bb44c6830acfb51c02c86f35dae009f79
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
-  SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
+  SwiftyUserDefaults: 6746ede7f29e4c1bf2b1e104eb3139c5928e44d1
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: d5877cbdd8b31e33e542b05a541373df44940a1a
+PODFILE CHECKSUM: 3614848edca9b7e61f990d81dc108827ad845015
 
 COCOAPODS: 1.10.1

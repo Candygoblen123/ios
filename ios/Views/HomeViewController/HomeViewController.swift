@@ -9,6 +9,7 @@ import UIKit
 import SafariServices
 import RxFlow
 import RxSwift
+import RxDataSources
 import Reusable
 
 #if canImport(FLEX)
@@ -16,12 +17,14 @@ import Reusable
 #endif
 
 class HomeViewController: UIViewController, StoryboardBased, BaseController {
-    var model: HomeModel!
+    var model: HomeViewModel!
     var stepper: Stepper!
     
     let bag = DisposeBag()
     
     @IBOutlet weak var barButton: UIBarButtonItem!
+    
+    @IBOutlet weak var liveCollection: UICollectionView!
     
     var gesture: UITapGestureRecognizer {
         let g = UITapGestureRecognizer(target: self, action: #selector(showFlex))
@@ -33,6 +36,18 @@ class HomeViewController: UIViewController, StoryboardBased, BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(gesture)
+        
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<Void, String>> { (source, view, index, item) -> UICollectionViewCell in
+            let cell = view.dequeueReusableCell(for: index) as LiveCard
+            
+            return cell
+        }
+        
+        liveCollection.register(cellType: LiveCard.self)
+        Observable.just(Array(repeating: "asdf", count: 10))
+            .map { [SectionModel<Void, String>(model: (), items: $0)] }
+            .bind(to: liveCollection.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(checkPasteboard),

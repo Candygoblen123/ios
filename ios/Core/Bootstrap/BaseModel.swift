@@ -11,13 +11,14 @@ import RxFlow
 import RxSwift
 
 class BaseModel: NSObject {
-    let stepper : Stepper
     let services: AppService
+    let stepper : Stepper
     
+    let errorRelay = BehaviorRelay<Error?>(value: nil)
     let bag = DisposeBag()
     
-    required init(_ stepper: Stepper, services: AppService) {
-        self.stepper = stepper
-        self.services = services
+    required init(_ items: ControllerInitializationItems) {
+        services = items.services
+        stepper = items.stepper
     }
 }

@@ -30,28 +30,30 @@ class AppFlow: Flow {
         case .settingsDone: return doneSettings()
         case .viewDone: return doneView()
             
+        case .homeNew: return toNewHome()
+            
 //        default: return .none
         }
     }
     
     private func toHome() -> FlowContributors {
-        let controller = HomeViewController.instantiate(self.stepper, services: services)        
-        rootViewController.setViewControllers([controller], animated: true)
+//        let controller = HomeViewController.instantiate(self.stepper, services: services)        
+//        rootViewController.setViewControllers([controller], animated: true)
 
         return .none
     }
     private func toStream(_ id: String) -> FlowContributors {
-        let controller = StreamViewerController.instantiate(self.stepper, services: services)
-        controller.loadStreamWithId(id: id)
-        rootViewController.setViewControllers([controller], animated: true)
+//        let controller = StreamViewerController.instantiate(self.stepper, services: services)
+//        controller.loadStreamWithId(id: id)
+//        rootViewController.setViewControllers([controller], animated: true)
         
         return .none
     }
     private func toSettings() -> FlowContributors {
-        let controller = SettingsViewController.instantiate(self.stepper, services: services)
-        
-        let nav = UINavigationController(rootViewController: controller)
-        rootViewController.present(nav, animated: true, completion: nil)
+//        let controller = SettingsViewController.instantiate(self.stepper, services: services)
+//
+//        let nav = UINavigationController(rootViewController: controller)
+//        rootViewController.present(nav, animated: true, completion: nil)
         
         return .none
     }
@@ -66,11 +68,18 @@ class AppFlow: Flow {
     }
     
     @objc func handleMenu() {}
+    
+    private func toNewHome() -> FlowContributors {
+        let controller = HomeView(initializationItems: (services, stepper))
+        rootViewController.setViewControllers([controller], animated: true)
+        
+        return .none
+    }
 }
 
 struct AppStepper: Stepper {
     let steps = PublishRelay<Step>()
-    let initialStep: Step = AppStep.home
+    let initialStep: Step = AppStep.homeNew
     
     func readyToEmitSteps() {
 //        steps.accept(initialStep)

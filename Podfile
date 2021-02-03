@@ -5,7 +5,10 @@ target 'ios' do
 
   pod 'Eureka'
   pod 'FontBlaster'
+  pod 'Kingfisher'
+  pod 'Neon'
   pod 'Reusable'
+  pod 'SCLAlertView'
   pod 'SwiftDate'
   pod 'SwiftyUserDefaults'
   pod 'XCDYouTubeKit'
@@ -13,6 +16,7 @@ target 'ios' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxFlow'
+  pod 'RxKingfisher'
   pod 'RxSwift'
 
   pod 'FLEX', :configuration => 'DEBUG'

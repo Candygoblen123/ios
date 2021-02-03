@@ -14,4 +14,6 @@ enum AppStep: Step {
     
     case viewDone
     case settingsDone
+    
+    case homeNew
 }
